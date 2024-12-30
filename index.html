@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Move</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            position: relative;
+        }
+        .button-default {
+            background-color: rgba(51, 51, 51, 0.05);
+            border-radius: 8px;
+            border-width: 0;
+            color: #333333;
+            cursor: pointer;
+            display: inline-block;
+            font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 20px;
+            list-style: none;
+            margin: 10px;
+            padding: 10px 12px;
+            text-align: center;
+            transition: all 200ms;
+            vertical-align: baseline;
+            white-space: nowrap;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+        }
+        .button-love {
+            background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+            border: 0;
+            border-radius: 12px;
+            color: #FFFFFF;
+            cursor: pointer;
+            display: inline-block;
+            font-family: -apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 2.5;
+            outline: transparent;
+            padding: 0 1rem;
+            text-align: center;
+            text-decoration: none;
+            transition: box-shadow .2s ease-in-out;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            white-space: nowrap;
+        }
+        .button-love:not([disabled]):focus {
+            box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+        }
+        .button-love:not([disabled]):hover {
+            box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+        }
+        #buttonB {
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <h1>Do you love Sesame?</h1>
+    <p>
+    <button id="buttonA" class="button-default">Yes! </button>
+    <button id="buttonB" class="button-default">No!</button>
+
+    <script>
+        function relocateButton() {
+            const buttonB = document.getElementById('buttonB');
+            const x = Math.random() * (window.innerWidth - buttonB.offsetWidth);
+            const y = Math.random() * (window.innerHeight - buttonB.offsetHeight);
+            buttonB.style.left = `${x}px`;
+            buttonB.style.top = `${y}px`;
+        }
+
+        document.getElementById('buttonB').addEventListener('click', relocateButton);
+
+        document.getElementById('buttonA').addEventListener('click', function() {
+            const buttonA = document.getElementById('buttonA');
+            buttonA.className = 'button-love';
+        });
+
+        function handleMove(event) {
+            const buttonB = document.getElementById('buttonB');
+            const rect = buttonB.getBoundingClientRect();
+            const mouseX = event.clientX || (event.touches && event.touches[0].clientX);
+            const mouseY = event.clientY || (event.touches && event.touches[0].clientY);
+            const buttonX = rect.left + rect.width / 2;
+            const buttonY = rect.top + rect.height / 2;
+            const distance = Math.sqrt((mouseX - buttonX) ** 2 + (mouseY - buttonY) ** 2);
+
+            if (distance <= 10) {
+                relocateButton();
+            }
+        }
+
+        document.addEventListener('mousemove', handleMove);
+        document.addEventListener('touchmove', handleMove);
+    </script>
+</body>
+</html>
