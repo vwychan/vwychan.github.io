@@ -3,16 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Button Move</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Button Page</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            position: relative;
+            background: linear-gradient(to bottom right, #FF007F, #33affc); /* Gradient from rose pink to light blue */
+        }
+
+        .button-default {
+            align-items: center;
+            background-color: rgba(240, 240, 240, 0.26);
+            border: 1px solid #DFDFDF;
+            border-radius: 16px;
+            box-sizing: border-box;
+            color: #000000;
+            cursor: pointer;
+            display: flex;
+            font-family: Inter, sans-serif;
+            font-size: 18px;
+            justify-content: center;
+            line-height: 28px;
+            max-width: 100%;
+            padding: 14px 22px;
+            text-decoration: none;
+            transition: all .2s;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            width: 100px;
+            margin: 10px;
+        }
+
+        .button-default:active,
+        .button-default:hover {
+            outline: 0;
+        }
+
+        .button-default:hover {
+            background-color: #FFFFFF;
+            border-color: rgba(0, 0, 0, 0.19);
+        }
+
+        @media (min-width: 768px) {
+            .button-default {
+                font-size: 20px;
+                min-width: 200px;
+                padding: 14px 16px;
+            }
+        }
+
+        .button-love {
+            background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+            color: #FFFFFF;
+        }
+    </style>
 </head>
 <body>
-    <h1>Do you love Sesame?</h1>
-    <p>
-    <button class="button-default" id="buttonA">Button A</button>
-    <button class="button-default" id="buttonB">Button B</button>
+    <h1>Q</h1>
+    <button class="button-default" id="loveButton">Love</button>
+    <button class="button-default" id="noButton">No</button>
+    <script>
+        document.getElementById('loveButton').addEventListener('click', function() {
+            this.classList.add('button-love');
+        });
 
-    <script src="https://cdn.jsdelivr.net/npm/fireworks-js@2.9.0/dist/index.umd.min.js"></script>
-    <script src="script.js"></script>
+        function relocateButton(button) {
+            const x = Math.random() * (window.innerWidth - button.offsetWidth);
+            const y = Math.random() * (window.innerHeight - button.offsetHeight);
+            button.style.position = 'absolute';
+            button.style.left = `${x}px`;
+            button.style.top = `${y}px`;
+        }
+
+        const noButton = document.getElementById('noButton');
+        noButton.addEventListener('mouseover', () => relocateButton(noButton));
+        noButton.addEventListener('click', () => relocateButton(noButton));
+        noButton.addEventListener('touchstart', () => relocateButton(noButton));
+    </script>
 </body>
 </html>
