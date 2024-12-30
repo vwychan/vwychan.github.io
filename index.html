@@ -56,9 +56,9 @@
     </style>
 </head>
 <body>
-    <h1>Q</h1>
-    <button class="button-default" id="loveButton">Love</button>
-    <button class="button-default" id="noButton">No</button>
+    <h1>Hoshi or Wonwoo?</h1>
+    <button class="button-default" id="loveButton">Wonwoo</button>
+    <button class="button-default" id="noButton">Hoshi!</button>
     <script>
         document.getElementById('loveButton').addEventListener('click', function() {
             this.classList.add('button-love');
@@ -70,7 +70,6 @@
             button.style.position = 'absolute';
             button.style.left = `${x}px`;
             button.style.top = `${y}px`;
-            button.style.opacity = button.style.opacity * 0.9 ;
         }
 
         const noButton = document.getElementById('noButton');
