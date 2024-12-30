@@ -47,11 +47,6 @@
             outline: 0;
         }
 
-        .button-default:hover {
-            background-color: #FFFFFF;
-            border-color: rgba(0, 0, 0, 0.19);
-        }
-
         @media (min-width: 768px) {
             .button-default {
                 font-size: 20px;
@@ -81,7 +76,7 @@
             button.style.position = 'absolute';
             button.style.left = `${x}px`;
             button.style.top = `${y}px`;
-            button.style.opacity = '0.9';
+            button.style.opacity = button.style.opacity * 0.9 ;
         }
 
         const noButton = document.getElementById('noButton');
