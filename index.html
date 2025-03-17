@@ -15,7 +15,7 @@
             text-align: center;
             font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
             position: relative;
-            background: linear-gradient(to bottom right, #f5bad7, #b2dcf7); /* Gradient from rose pink to light blue */
+            background: linear-gradient(to bottom right, #f8dbe9, #d4edfc); /* Gradient from rose pink to light blue */
         }
 
         .button-default {
@@ -53,12 +53,27 @@
         .button-love {
             background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
         }
+
+        .button-sylus {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 100px;
+            height: 40px;
+            background-color: #000000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
     </style>
 </head>
 <body>
     <h1>Hoshi or Wonwoo?</h1>
     <button class="button-default" id="loveButton">Wonwoo</button>
     <button class="button-default" id="noButton">Hoshi!</button>
+    <button class="button-sylus" id="sylusButton">Sylus</button>
     <script>
         document.getElementById('loveButton').addEventListener('click', function() {
             this.classList.add('button-love');
@@ -76,6 +91,12 @@
         noButton.addEventListener('mouseover', () => relocateButton(noButton));
         noButton.addEventListener('click', () => relocateButton(noButton));
         noButton.addEventListener('touchstart', () => relocateButton(noButton));
+        
+        const sylusButton = document.getElementById('sylusButton');
+        sylusButton.addEventListener('click', function() {
+            window.location.href = 'Sylus.html';
+        });
+
     </script>
 </body>
 </html>
