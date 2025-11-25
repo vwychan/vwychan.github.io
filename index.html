@@ -2,25 +2,62 @@
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
     <title>日本中部之旅 | 旅行小冊子</title>
     
-    <!-- App Icons -->
-    <link rel="icon" type="image/png" href="Nagosaka.PNG">
-    <link rel="apple-touch-icon" href="Nagosaka.PNG">
-    <link rel="apple-touch-icon" sizes="152x152" href="Nagosaka.PNG">
-    <link rel="apple-touch-icon" sizes="180x180" href="Nagosaka.PNG">
-    <link rel="apple-touch-icon" sizes="167x167" href="Nagosaka.PNG">
+    <!-- Favicon and App Icons -->
+    <link rel="icon" type="image/png" href="/img/Nagosaka.PNG">
+    <link rel="shortcut icon" href="/img/Nagosaka.PNG">
     
-    <!-- Web App Settings -->
+    <!-- Apple Touch Icons for iOS Home Screen -->
+    <link rel="apple-touch-icon" href="/img/Nagosaka.PNG">
+    <link rel="apple-touch-icon" sizes="57x57" href="/img/Nagosaka.PNG">
+    <link rel="apple-touch-icon" sizes="60x60" href="/img/Nagosaka.PNG">
+    <link rel="apple-touch-icon" sizes="72x72" href="/img/Nagosaka.PNG">
+    <link rel="apple-touch-icon" sizes="76x76" href="/img/Nagosaka.PNG">
+    <link rel="apple-touch-icon" sizes="114x114" href="/img/Nagosaka.PNG">
+    <link rel="apple-touch-icon" sizes="120x120" href="/img/Nagosaka.PNG">
+    <link rel="apple-touch-icon" sizes="144x144" href="/img/Nagosaka.PNG">
+    <link rel="apple-touch-icon" sizes="152x152" href="/img/Nagosaka.PNG">
+    <link rel="apple-touch-icon" sizes="167x167" href="/img/Nagosaka.PNG">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/Nagosaka.PNG">
+    
+    <!-- Web App Settings for iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="日本中部之旅">
     <meta name="theme-color" content="#faf8f3">
     
+    <!-- Open Graph / Facebook / LinkedIn -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="日本中部之旅 | 旅行小冊子">
+    <meta property="og:description" content="名古屋・金澤・伊勢・大阪 - 為期10天的日本中部深度之旅">
+    <meta property="og:image" content="/img/Nagosaka.PNG">
+    <meta property="og:url" content="">
+    <meta property="og:site_name" content="日本中部之旅">
+    <meta property="og:locale" content="zh_TW">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="日本中部之旅 | 旅行小冊子">
+    <meta name="twitter:description" content="名古屋・金澤・伊勢・大阪 - 為期10天的日本中部深度之旅">
+    <meta name="twitter:image" content="/img/Nagosaka.PNG">
+    
+    <!-- Additional Meta Tags for Mobile -->
+    <meta name="description" content="名古屋・金澤・伊勢・大阪 - 為期10天的日本中部深度之旅">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="日本中部之旅">
+    
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/manifest.json">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600&family=Crimson+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Import modular CSS -->
+    <link rel="stylesheet" href="./src/styles/main.css">
+    
     <style>
         :root {
             --paper-light: #faf8f3;
@@ -1921,184 +1958,7 @@
         </div>
     </div>
 
-    <script>
-        // Dark mode detection
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            document.documentElement.classList.add('dark');
-        }
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-            if (event.matches) {
-                document.documentElement.classList.add('dark');
-            } else {
-                document.documentElement.classList.remove('dark');
-            }
-        });
-
-        // Navigation
-        const tabs = document.querySelectorAll('.nav-tab');
-        const pages = document.querySelectorAll('.page');
-
-        tabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                const targetPage = tab.dataset.page;
-
-                tabs.forEach(t => t.classList.remove('active'));
-                pages.forEach(p => p.classList.remove('active'));
-
-                tab.classList.add('active');
-                document.getElementById(targetPage).classList.add('active');
-
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-        });
-
-        // Time Adjustment Feature
-        const timeStorage = {}; // Store original times
-
-        // Parse time string to minutes
-        function timeToMinutes(timeStr) {
-            if (timeStr === '自由') return null;
-            const [hours, minutes] = timeStr.split(':').map(Number);
-            return hours * 60 + minutes;
-        }
-
-        // Convert minutes back to time string
-        function minutesToTime(minutes) {
-            const hours = Math.floor(minutes / 60) % 24;
-            const mins = minutes % 60;
-            return `${String(hours).padStart(2, '0')}:${String(mins).padStart(2, '0')}`;
-        }
-
-        // Initialize time storage and add click handlers
-        function initializeTimeAdjustment() {
-            document.querySelectorAll('.page').forEach(page => {
-                const pageId = page.id;
-                const timeElements = page.querySelectorAll('.timeline-time');
-
-                timeElements.forEach((timeEl, index) => {
-                    const originalTime = timeEl.textContent.trim();
-                    const storageKey = `${pageId}-${index}`;
-
-                    // Store original time
-                    if (!timeStorage[storageKey]) {
-                        timeStorage[storageKey] = originalTime;
-                    }
-
-                    // Skip "自由" times
-                    if (originalTime === '自由') return;
-
-                    // Add click handler
-                    timeEl.addEventListener('click', function(e) {
-                        e.stopPropagation();
-                        showTimeAdjuster(timeEl, pageId, index, timeElements);
-                    });
-                });
-            });
-        }
-
-        // Show time adjustment dialog
-        function showTimeAdjuster(timeEl, pageId, index, allTimes) {
-            const currentTime = timeEl.textContent.trim();
-
-            // Create overlay
-            const overlay = document.createElement('div');
-            overlay.className = 'time-adjuster-overlay';
-
-            // Create adjuster dialog
-            const adjuster = document.createElement('div');
-            adjuster.className = 'time-adjuster';
-            adjuster.innerHTML = `
-                <h3>⏰ 調整時間</h3>
-                <label>延遲分鐘數（輸入負數可提前）：</label>
-                <input type="number" id="delay-input" value="0" min="-999" max="999" step="15" placeholder="例如：30（延遲30分鐘）">
-                <div class="time-adjuster-buttons">
-                    <button class="btn-cancel">取消</button>
-                    <button class="btn-reset">重置為原時間</button>
-                    <button class="btn-apply">套用</button>
-                </div>
-            `;
-
-            document.body.appendChild(overlay);
-            document.body.appendChild(adjuster);
-
-            const input = document.getElementById('delay-input');
-            input.focus();
-            input.select();
-
-            // Cancel button
-            adjuster.querySelector('.btn-cancel').addEventListener('click', () => {
-                document.body.removeChild(overlay);
-                document.body.removeChild(adjuster);
-            });
-
-            // Overlay click to close
-            overlay.addEventListener('click', () => {
-                document.body.removeChild(overlay);
-                document.body.removeChild(adjuster);
-            });
-
-            // Reset button
-            adjuster.querySelector('.btn-reset').addEventListener('click', () => {
-                resetTimesFromIndex(pageId, index, allTimes);
-                document.body.removeChild(overlay);
-                document.body.removeChild(adjuster);
-            });
-
-            // Apply button
-            adjuster.querySelector('.btn-apply').addEventListener('click', () => {
-                const delay = parseInt(input.value) || 0;
-                if (delay !== 0) {
-                    adjustTimesFromIndex(pageId, index, delay, allTimes);
-                }
-                document.body.removeChild(overlay);
-                document.body.removeChild(adjuster);
-            });
-
-            // Enter key to apply
-            input.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') {
-                    const delay = parseInt(input.value) || 0;
-                    if (delay !== 0) {
-                        adjustTimesFromIndex(pageId, index, delay, allTimes);
-                    }
-                    document.body.removeChild(overlay);
-                    document.body.removeChild(adjuster);
-                }
-            });
-        }
-
-        // Adjust times from a specific index onwards
-        function adjustTimesFromIndex(pageId, startIndex, delayMinutes, allTimes) {
-            for (let i = startIndex; i < allTimes.length; i++) {
-                const timeEl = allTimes[i];
-                const storageKey = `${pageId}-${i}`;
-                const originalTime = timeStorage[storageKey];
-
-                if (originalTime === '自由') continue;
-
-                const originalMinutes = timeToMinutes(originalTime);
-                const newMinutes = originalMinutes + delayMinutes;
-                const newTime = minutesToTime(newMinutes);
-
-                timeEl.textContent = newTime;
-                timeEl.classList.add('adjusted');
-            }
-        }
-
-        // Reset times from a specific index onwards
-        function resetTimesFromIndex(pageId, startIndex, allTimes) {
-            for (let i = startIndex; i < allTimes.length; i++) {
-                const timeEl = allTimes[i];
-                const storageKey = `${pageId}-${i}`;
-                const originalTime = timeStorage[storageKey];
-
-                timeEl.textContent = originalTime;
-                timeEl.classList.remove('adjusted');
-            }
-        }
-
-        // Initialize when page loads
-        document.addEventListener('DOMContentLoaded', initializeTimeAdjustment);
-    </script>
+    <!-- Import modular JavaScript -->
+    <script type="module" src="./src/main.js"></script>
 </body>
 </html>

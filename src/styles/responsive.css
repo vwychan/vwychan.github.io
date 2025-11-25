@@ -1,0 +1,290 @@
+/* iPhone and mobile optimizations */
+@media (max-width: 768px) {
+    html {
+        /* iOS Safari fix for 100vh */
+        height: -webkit-fill-available;
+    }
+
+    body {
+        padding: 0;
+        /* iOS Safari workaround for fixed background */
+        background-attachment: scroll;
+        /* Ensure background covers full viewport on mobile */
+        background-size: cover;
+        background-position: center center;
+        min-height: 100vh;
+        min-height: -webkit-fill-available; /* iOS Safari fix */
+        /* Prevent text size adjustment on orientation change */
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+    }
+
+    /* Alternative fixed background for iOS using pseudo-element */
+    body::after {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('/img/Nagosaka_bg.jpeg');
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        z-index: -1;
+        /* iOS Safari specific */
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+
+    .booklet {
+        border-radius: 0;
+        border: none;
+        background: rgba(250, 248, 243, 0.9);
+        /* Better backdrop for mobile readability */
+        backdrop-filter: blur(3px);
+        -webkit-backdrop-filter: blur(3px);
+    }
+
+    .cover {
+        min-height: 100vh;
+        padding: 2rem 1.5rem 3rem;
+        background: transparent;
+    }
+
+    .cover h1 {
+        font-size: 2rem;
+        margin-bottom: 0.8rem;
+        letter-spacing: 0.1em;
+        padding: 1.2rem;
+    }
+
+    .cover .subtitle {
+        font-size: 1rem;
+        margin: 0;
+    }
+
+    .cover .date-range {
+        font-size: 1rem;
+        padding: 0.8rem 1.5rem;
+    }
+
+    .nav-tabs {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-tab {
+        min-width: 65px;
+        padding: 0.9rem 0.4rem;
+        font-size: 0.85rem;
+    }
+
+    .page {
+        padding: 1.5rem 1rem;
+    }
+
+    .day-number-large {
+        font-size: 2.5rem;
+    }
+
+    .day-location {
+        font-size: 1.3rem;
+    }
+
+    .info-card {
+        padding: 1rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .info-card h4 {
+        font-size: 1rem;
+    }
+
+    .info-card p,
+    .info-card li {
+        font-size: 0.9rem;
+    }
+
+    .timeline-item {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding-bottom: 1.2rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .timeline-time {
+        width: auto;
+        font-size: 1.1rem;
+        padding: 0.3rem 0.8rem;
+        background: var(--accent-red);
+        color: white;
+        border-radius: 20px;
+        display: inline-block;
+    }
+
+    .timeline-time.adjusted {
+        background: var(--accent-gold);
+        color: var(--ink-dark);
+    }
+
+    .timeline-content h4 {
+        font-size: 1rem;
+    }
+
+    .timeline-content p {
+        font-size: 0.9rem;
+    }
+
+    .timeline-content .note {
+        font-size: 0.85rem;
+    }
+
+    .route-flow {
+        justify-content: flex-start;
+        gap: 0.5rem;
+    }
+
+    .route-stop {
+        padding: 0.6rem 1rem;
+        font-size: 0.85rem;
+    }
+
+    .route-arrow {
+        font-size: 1.1rem;
+    }
+
+    .time-adjuster {
+        min-width: auto;
+        width: 90%;
+        max-width: 350px;
+        padding: 1.5rem;
+    }
+
+    .time-adjuster h3 {
+        font-size: 1.1rem;
+    }
+
+    .time-adjuster input {
+        font-size: 16px;
+        padding: 0.9rem;
+    }
+
+    .accommodation {
+        padding: 0.9rem;
+        margin-top: 0.8rem;
+    }
+
+    .accommodation h5 {
+        font-size: 0.95rem;
+    }
+
+    .accommodation p {
+        font-size: 0.85rem;
+    }
+
+    .route-map {
+        padding: 1.2rem;
+        margin: 1rem 0;
+    }
+
+    .route-map h3 {
+        font-size: 1.1rem;
+    }
+
+    .itinerary-section {
+        padding: 1.2rem;
+        margin-bottom: 1rem;
+    }
+
+    .itinerary-section h3 {
+        font-size: 1.2rem;
+    }
+}
+
+/* iPhone 17 Pro and newer optimizations */
+@supports (padding: max(0px)) {
+    body {
+        /* Safe area insets for iPhone notch */
+        padding-left: max(1rem, env(safe-area-inset-left));
+        padding-right: max(1rem, env(safe-area-inset-right));
+        padding-top: max(2rem, env(safe-area-inset-top));
+        padding-bottom: max(2rem, env(safe-area-inset-bottom));
+    }
+
+    .booklet {
+        margin-left: max(0px, env(safe-area-inset-left));
+        margin-right: max(0px, env(safe-area-inset-right));
+    }
+
+    .nav-tabs {
+        padding-left: max(0px, env(safe-area-inset-left));
+        padding-right: max(0px, env(safe-area-inset-right));
+    }
+}
+
+/* iPhone specific optimizations */
+@media only screen 
+    and (device-width: 430px) 
+    and (device-height: 932px) 
+    and (-webkit-device-pixel-ratio: 3),
+    only screen 
+    and (device-width: 393px) 
+    and (device-height: 852px) 
+    and (-webkit-device-pixel-ratio: 3),
+    only screen 
+    and (device-width: 428px) 
+    and (device-height: 926px) 
+    and (-webkit-device-pixel-ratio: 3) {
+    /* iPhone 17 Pro and similar models */
+    body {
+        font-size: 16px; /* Prevent iOS zoom on input focus */
+        -webkit-text-size-adjust: 100%;
+    }
+
+    .booklet {
+        min-height: 100vh;
+        min-height: -webkit-fill-available;
+    }
+
+    /* Ensure touch targets are at least 44x44px for iOS */
+    .nav-tab {
+        min-height: 44px;
+        padding: 0.9rem 0.6rem;
+    }
+
+    .timeline-time {
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    .time-adjuster button {
+        min-height: 44px;
+    }
+}
+
+/* Landscape orientation optimizations for iPhone */
+@media only screen 
+    and (max-width: 932px) 
+    and (orientation: landscape) {
+    body {
+        padding: 1rem 0.5rem;
+    }
+
+    .cover {
+        min-height: auto;
+        padding: 1.5rem 1rem;
+    }
+
+    .cover h1 {
+        font-size: 1.8rem;
+        padding: 1rem;
+    }
+
+    .page {
+        padding: 1rem 0.8rem;
+    }
+}
+

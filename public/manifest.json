@@ -1,0 +1,40 @@
+{
+  "name": "日本中部之旅",
+  "short_name": "日本中部之旅",
+  "description": "名古屋・金澤・伊勢・大阪 - 為期10天的日本中部深度之旅",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#faf8f3",
+  "theme_color": "#faf8f3",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/img/Nagosaka.PNG",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/img/Nagosaka.PNG",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/img/Nagosaka.PNG",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/img/Nagosaka.PNG",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["travel", "lifestyle"],
+  "lang": "zh-TW",
+  "dir": "ltr"
+}
+
