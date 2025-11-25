@@ -8,48 +8,64 @@
     body {
         padding: 0;
         /* Remove background from body on mobile - use ::after instead */
-        background-image: none;
+        background-image: none !important;
         background-attachment: scroll;
         min-height: 100vh;
         min-height: -webkit-fill-available; /* iOS Safari fix */
         /* Prevent text size adjustment on orientation change */
         -webkit-text-size-adjust: 100%;
         text-size-adjust: 100%;
+        /* Ensure body doesn't interfere with background */
+        position: relative;
     }
 
     /* Fixed background for mobile - shows full image, doesn't scroll */
+    /* iOS Safari requires this approach for fixed backgrounds */
     body::after {
         content: '';
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        height: -webkit-fill-available; /* iOS Safari fix */
-        background-image: url('/img/Nagosaka_bg.jpeg');
-        background-size: contain; /* Shows full image fitting within screen */
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-color: var(--paper-light); /* Fallback color for empty spaces */
-        z-index: -2; /* Behind overlay */
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        height: -webkit-fill-available !important; /* iOS Safari fix */
+        min-height: 100vh !important;
+        min-height: -webkit-fill-available !important;
+        background-image: url('/img/Nagosaka_bg.jpeg') !important;
+        background-size: contain !important; /* Shows full image fitting within screen */
+        background-position: center center !important;
+        background-repeat: no-repeat !important;
+        background-color: var(--paper-light) !important; /* Fallback color for empty spaces */
+        z-index: -10 !important; /* Far behind everything */
         /* iOS Safari specific - ensures fixed positioning works */
-        -webkit-transform: translateZ(0);
-        transform: translateZ(0);
-        /* Prevent scrolling */
-        will-change: transform;
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-        /* Ensure it covers the full viewport */
-        min-height: 100vh;
-        min-height: -webkit-fill-available;
+        -webkit-transform: translateZ(0) !important;
+        transform: translateZ(0) !important;
+        /* Prevent scrolling and ensure rendering */
+        will-change: transform !important;
+        -webkit-backface-visibility: hidden !important;
+        backface-visibility: hidden !important;
+        /* Force hardware acceleration on iOS */
+        -webkit-perspective: 1000;
+        perspective: 1000;
+        /* Ensure it's always visible */
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
 
     /* Ensure overlay also covers full viewport on mobile */
     body::before {
-        height: 100vh;
-        height: -webkit-fill-available;
-        min-height: 100vh;
-        min-height: -webkit-fill-available;
+        position: fixed !important;
+        height: 100vh !important;
+        height: -webkit-fill-available !important;
+        min-height: 100vh !important;
+        min-height: -webkit-fill-available !important;
+        z-index: -1 !important; /* Above background, below content */
+        /* Ensure it stays fixed on iOS */
+        -webkit-transform: translateZ(0) !important;
+        transform: translateZ(0) !important;
     }
 
     .booklet {
@@ -59,6 +75,8 @@
         /* Better backdrop for mobile readability */
         backdrop-filter: blur(var(--blur-booklet-mobile));
         -webkit-backdrop-filter: blur(var(--blur-booklet-mobile));
+        /* Adjust margin for mobile nav height */
+        margin-top: 55px; /* Slightly smaller on mobile */
     }
 
     .cover {
@@ -85,10 +103,20 @@
     }
 
     .nav-tabs {
-        position: sticky;
+        position: fixed;
         top: 0;
-        z-index: 100;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        left: 0;
+        right: 0;
+        width: 100%;
+        z-index: 1000;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        /* Ensure it's above everything on mobile */
+        will-change: transform;
+    }
+
+    .booklet {
+        /* Add top margin to account for fixed navigation */
+        margin-top: 55px;
     }
 
     .nav-tab {

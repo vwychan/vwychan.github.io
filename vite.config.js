@@ -1,8 +1,10 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-
-  base: '/vwychan.github.io/', // Replace with your actual repo name
+  // For GitHub Pages:
+  // - Repo name is "vwychan.github.io" → served at root URL
+  // - So base should be '/' (not '/vwychan.github.io/')
+  base: '/',
   root: './',
   publicDir: 'public',
   build: {

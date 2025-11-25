@@ -89,13 +89,26 @@
     z-index: 10;
 }
 
-/* Navigation */
+/* Navigation - Fixed at top of page */
 .nav-tabs {
     display: flex;
     background: var(--paper-cream);
     border-bottom: 2px solid var(--accent-gold);
     overflow-x: auto;
     scrollbar-width: thin;
+    /* Fixed positioning at top of viewport */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
+    /* Ensure it stays above all content */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    /* Smooth scrolling for horizontal overflow */
+    -webkit-overflow-scrolling: touch;
+    /* Ensure it's always visible */
+    will-change: transform;
 }
 
 .nav-tab {

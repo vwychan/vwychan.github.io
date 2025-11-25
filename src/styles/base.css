@@ -54,6 +54,7 @@ body::before {
 .booklet {
     max-width: 900px;
     margin: 0 auto;
+    margin-top: var(--nav-height); /* Space for fixed navigation */
     position: relative;
     z-index: 1;
     background: var(--bg-booklet);

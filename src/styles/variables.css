@@ -36,5 +36,8 @@
     --blur-booklet-mobile: 3px;
     --blur-cover-title: 8px;
     --blur-cover-date: 10px;
+    
+    /* Navigation */
+    --nav-height: 60px; /* Height of fixed navigation bar */
 }
 

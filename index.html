@@ -10,17 +10,19 @@
     <link rel="shortcut icon" href="/img/Nagosaka.PNG">
     
     <!-- Apple Touch Icons for iOS Home Screen -->
-    <link rel="apple-touch-icon" href="/img/Nagosaka.PNG">
-    <link rel="apple-touch-icon" sizes="57x57" href="/img/Nagosaka.PNG">
-    <link rel="apple-touch-icon" sizes="60x60" href="/img/Nagosaka.PNG">
-    <link rel="apple-touch-icon" sizes="72x72" href="/img/Nagosaka.PNG">
-    <link rel="apple-touch-icon" sizes="76x76" href="/img/Nagosaka.PNG">
-    <link rel="apple-touch-icon" sizes="114x114" href="/img/Nagosaka.PNG">
-    <link rel="apple-touch-icon" sizes="120x120" href="/img/Nagosaka.PNG">
-    <link rel="apple-touch-icon" sizes="144x144" href="/img/Nagosaka.PNG">
-    <link rel="apple-touch-icon" sizes="152x152" href="/img/Nagosaka.PNG">
-    <link rel="apple-touch-icon" sizes="167x167" href="/img/Nagosaka.PNG">
+    <!-- 180x180 is the most important for modern iPhones - put it first -->
     <link rel="apple-touch-icon" sizes="180x180" href="/img/Nagosaka.PNG">
+    <link rel="apple-touch-icon" sizes="167x167" href="/img/Nagosaka.PNG">
+    <link rel="apple-touch-icon" sizes="152x152" href="/img/Nagosaka.PNG">
+    <link rel="apple-touch-icon" sizes="144x144" href="/img/Nagosaka.PNG">
+    <link rel="apple-touch-icon" sizes="120x120" href="/img/Nagosaka.PNG">
+    <link rel="apple-touch-icon" sizes="114x114" href="/img/Nagosaka.PNG">
+    <link rel="apple-touch-icon" sizes="76x76" href="/img/Nagosaka.PNG">
+    <link rel="apple-touch-icon" sizes="72x72" href="/img/Nagosaka.PNG">
+    <link rel="apple-touch-icon" sizes="60x60" href="/img/Nagosaka.PNG">
+    <link rel="apple-touch-icon" sizes="57x57" href="/img/Nagosaka.PNG">
+    <!-- Fallback for older iOS versions -->
+    <link rel="apple-touch-icon" href="/img/Nagosaka.PNG">
     
     <!-- Web App Settings for iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -858,6 +860,20 @@
     </style>
 </head>
 <body>
+    <!-- Navigation - Fixed at top -->
+    <div class="nav-tabs">
+        <button class="nav-tab active" data-page="overview">總覽</button>
+        <button class="nav-tab" data-page="day1">11/29</button>
+        <button class="nav-tab" data-page="day2">11/30</button>
+        <button class="nav-tab" data-page="day3">12/1</button>
+        <button class="nav-tab" data-page="day4">12/2</button>
+        <button class="nav-tab" data-page="day5">12/3</button>
+        <button class="nav-tab" data-page="day6">12/4</button>
+        <button class="nav-tab" data-page="day7">12/5</button>
+        <button class="nav-tab" data-page="day8">12/6</button>
+        <button class="nav-tab" data-page="day9">12/7</button>
+    </div>
+
     <div class="booklet">
         <!-- Cover Page -->
         <div class="cover">
@@ -865,20 +881,6 @@
                 <h1>日本中部之旅<p class="subtitle">名古屋・金澤・伊勢・大阪</p></h1>                
                 <div class="date-range">📅 2024.11.29 - 12.09</div>
             </div>
-        </div>
-
-        <!-- Navigation -->
-        <div class="nav-tabs">
-            <button class="nav-tab active" data-page="overview">總覽</button>
-            <button class="nav-tab" data-page="day1">11/29</button>
-            <button class="nav-tab" data-page="day2">11/30</button>
-            <button class="nav-tab" data-page="day3">12/1</button>
-            <button class="nav-tab" data-page="day4">12/2</button>
-            <button class="nav-tab" data-page="day5">12/3</button>
-            <button class="nav-tab" data-page="day6">12/4</button>
-            <button class="nav-tab" data-page="day7">12/5</button>
-            <button class="nav-tab" data-page="day8">12/6</button>
-            <button class="nav-tab" data-page="day9">12/7</button>
         </div>
 
         <!-- Overview Page -->
