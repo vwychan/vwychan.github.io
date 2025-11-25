@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lreap Naiviv</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            position: relative;
+            background: linear-gradient(to bottom right, #f8dbe9, #d4edfc); /* Gradient from rose pink to light blue */
+        }
+
+        .button-default {
+            align-items: center;
+            background-color: rgba(240, 240, 240, 0.26);
+            border: 1px solid #DFDFDF;
+            border-radius: 16px;
+            box-sizing: border-box;
+            color: #000000;
+            cursor: pointer;
+            display: flex;
+            font-family: Inter, sans-serif;
+            font-size: 18px;
+            justify-content: center;
+            line-height: 28px;
+            max-width: 100%;
+            padding: 14px 22px;
+            text-decoration: none;
+            transition: all .2s;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            width: 100px;
+            margin: 10px;
+        }
+
+        @media (min-width: 768px) {
+            .button-default {
+                font-size: 20px;
+                min-width: 200px;
+                padding: 14px 16px;
+            }
+        }
+
+        .button-love {
+            background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+        }
+
+        .button-sylus {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 100px;
+            height: 40px;
+            background-color: #000000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hoshi or Wonwoo?</h1>
+    <button class="button-default" id="loveButton">Wonwoo</button>
+    <button class="button-default" id="noButton">Hoshi!</button>
+    <button class="button-sylus" id="sylusButton">Sylus</button>
+    <script>
+        document.getElementById('loveButton').addEventListener('click', function() {
+            this.classList.add('button-love');
+        });
+
+        function relocateButton(button) {
+            const x = Math.random() * (window.innerWidth - button.offsetWidth);
+            const y = Math.random() * (window.innerHeight - button.offsetHeight);
+            button.style.position = 'absolute';
+            button.style.left = `${x}px`;
+            button.style.top = `${y}px`;
+        }
+
+        const noButton = document.getElementById('noButton');
+        noButton.addEventListener('mouseover', () => relocateButton(noButton));
+        noButton.addEventListener('click', () => relocateButton(noButton));
+        noButton.addEventListener('touchstart', () => relocateButton(noButton));
+        
+        const sylusButton = document.getElementById('sylusButton');
+        sylusButton.addEventListener('click', function() {
+            window.location.href = 'Sylus.html';
+        });
+
+    </script>
+</body>
+</html>

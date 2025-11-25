@@ -1,102 +1,2119 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lreap Naiviv</title>
+    <title>日本中部之旅 | 旅行小冊子</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600&family=Crimson+Pro:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --paper-light: #faf8f3;
+            --paper-cream: #f5f1e8;
+            --ink-dark: #2b2520;
+            --ink-medium: #5a4a42;
+            --ink-light: #8b7b73;
+            --accent-red: #c1272d;
+            --accent-gold: #d4a574;
+            --accent-blue: #3d5a80;
+            --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .dark {
+            --paper-light: #1a1614;
+            --paper-cream: #2b2520;
+            --ink-dark: #f5f1e8;
+            --ink-medium: #d4cfc5;
+            --ink-light: #a89f95;
+            --accent-red: #e63946;
+            --accent-gold: #f4d399;
+            --accent-blue: #5b7fa6;
+            --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.4);
+            --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.6);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background:
+                repeating-linear-gradient(0deg, transparent, transparent 19px, rgba(193, 39, 45, 0.05) 19px, rgba(193, 39, 45, 0.05) 20px),
+                repeating-linear-gradient(90deg, transparent, transparent 19px, rgba(61, 90, 128, 0.05) 19px, rgba(61, 90, 128, 0.05) 20px),
+                radial-gradient(circle at 20% 30%, rgba(139, 195, 139, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(212, 165, 116, 0.06) 0%, transparent 50%),
+                linear-gradient(135deg, #f5f1e8 0%, #faf8f3 50%, #f0ebe0 100%);
+            color: var(--ink-dark);
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 2rem 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .dark body {
+            background:
+                repeating-linear-gradient(0deg, transparent, transparent 19px, rgba(212, 165, 116, 0.15) 19px, rgba(212, 165, 116, 0.15) 20px),
+                repeating-linear-gradient(90deg, transparent, transparent 19px, rgba(212, 165, 116, 0.12) 19px, rgba(212, 165, 116, 0.12) 20px),
+                linear-gradient(135deg, #0d0c0a 0%, #1a1614 100%);
+        }
+
+        .booklet {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--paper-light);
+            box-shadow:
+                0 2px 8px rgba(193, 39, 45, 0.1),
+                0 4px 16px rgba(61, 90, 128, 0.08),
+                0 8px 24px rgba(212, 165, 116, 0.12);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 3px solid rgba(212, 165, 116, 0.3);
+        }
+
+        /* Cover Page - AI插圖背景 */
+        .cover {
+            min-height: 600px;
+            background:
+                linear-gradient(to bottom,
+                    rgba(255, 255, 255, 0.7) 0%,
+                    rgba(255, 255, 255, 0.5) 20%,
+                    rgba(255, 255, 255, 0.3) 40%,
+                    rgba(255, 255, 255, 0.3) 60%,
+                    rgba(255, 255, 255, 0.5) 80%,
+                    rgba(255, 255, 255, 0.7) 100%),
+                url('https://pfst.cf2.poecdn.net/base/image/873dc775463038f2ef342a7be6a47d8b2ef00f6871605ed22916feb274c2ae1b?w=768&h=1376') center center / cover no-repeat;
+            color: var(--ink-dark);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
+            padding: 3rem 2rem;
             text-align: center;
-            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
             position: relative;
-            background: linear-gradient(to bottom right, #f8dbe9, #d4edfc); /* Gradient from rose pink to light blue */
+            overflow: hidden;
         }
 
-        .button-default {
-            align-items: center;
-            background-color: rgba(240, 240, 240, 0.26);
-            border: 1px solid #DFDFDF;
+        .cover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: none;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .cover::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: none;
+            pointer-events: none;
+            opacity: 0;
+            z-index: 0;
+        }
+
+        .cover-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        .cover h1 {
+            font-family: 'Noto Serif TC', serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow:
+                4px 4px 0px rgba(255, 255, 255, 0.95),
+                -1px -1px 0px rgba(255, 255, 255, 0.95),
+                1px -1px 0px rgba(255, 255, 255, 0.95),
+                -1px 1px 0px rgba(255, 255, 255, 0.95),
+                0 0 50px rgba(193, 39, 45, 0.4),
+                0 0 80px rgba(255, 215, 0, 0.3);
+            letter-spacing: 0.15em;
+            color: #c1272d;
+            position: relative;
+            z-index: 10;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 250, 240, 0.85) 100%);
+            backdrop-filter: blur(8px);
+            padding: 0.8rem 1.5rem;
             border-radius: 16px;
-            box-sizing: border-box;
-            color: #000000;
-            cursor: pointer;
+            border: 3px solid rgba(193, 39, 45, 0.3);
+            box-shadow:
+                0 8px 24px rgba(193, 39, 45, 0.25),
+                inset 0 0 40px rgba(255, 215, 0, 0.15);
+        }
+
+        .cover .subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            font-weight: 400;
+            margin-bottom: 2rem;
+            color: #3d5a80;
+            position: relative;
+            z-index: 10;
+            text-shadow:
+                2px 2px 0px rgba(255, 255, 255, 0.9),
+                0 0 30px rgba(212, 165, 116, 0.3);
+        }
+
+        .cover .date-range {
+            font-size: 1.3rem;
+            font-weight: 500;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 250, 240, 0.98) 100%);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            border: 3px solid #d4a574;
+            display: inline-block;
+            color: #2b2520;
+            box-shadow:
+                0 6px 20px rgba(193, 39, 45, 0.2),
+                inset 0 0 30px rgba(255, 215, 0, 0.1),
+                0 0 40px rgba(212, 165, 116, 0.15);
+            position: relative;
+            z-index: 10;
+        }
+
+        .cover .decoration {
+            margin-top: 2rem;
+            position: relative;
+            z-index: 10;
             display: flex;
-            font-family: Inter, sans-serif;
-            font-size: 18px;
+            gap: 2.5rem;
+            align-items: center;
             justify-content: center;
-            line-height: 28px;
-            max-width: 100%;
-            padding: 14px 22px;
-            text-decoration: none;
-            transition: all .2s;
-            user-select: none;
-            -webkit-user-select: none;
-            touch-action: manipulation;
-            width: 100px;
-            margin: 10px;
         }
 
-        @media (min-width: 768px) {
-            .button-default {
-                font-size: 20px;
-                min-width: 200px;
-                padding: 14px 16px;
-            }
+        .cover .decoration svg {
+            width: 65px;
+            height: 65px;
+            filter: drop-shadow(2px 2px 6px rgba(0, 0, 0, 0.15));
         }
 
-        .button-love {
-            background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+        .cover .decoration img {
+            max-width: 480px;
+            width: 90%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+            filter: drop-shadow(0 4px 12px rgba(212, 165, 116, 0.3));
+            border: 3px solid rgba(212, 165, 116, 0.4);
         }
 
-        .button-sylus {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 100px;
-            height: 40px;
-            background-color: #000000;
-            color: white;
+        /* Navigation */
+        .nav-tabs {
+            display: flex;
+            background: var(--paper-cream);
+            border-bottom: 2px solid var(--accent-gold);
+            overflow-x: auto;
+            scrollbar-width: thin;
+        }
+
+        .nav-tab {
+            flex: 1;
+            min-width: 80px;
+            padding: 1rem 0.8rem;
+            text-align: center;
+            background: none;
             border: none;
-            border-radius: 5px;
+            border-bottom: 3px solid transparent;
+            color: var(--ink-medium);
+            font-size: 0.95rem;
+            font-weight: 500;
             cursor: pointer;
-            font-size: 14px;
+            transition: all 0.3s ease;
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+
+        .nav-tab:hover {
+            background: var(--paper-light);
+            color: var(--ink-dark);
+        }
+
+        .nav-tab.active {
+            background: var(--paper-light);
+            color: var(--accent-red);
+            border-bottom-color: var(--accent-red);
+            font-weight: 600;
+        }
+
+        /* Content Pages */
+        .page {
+            display: none;
+            padding: 2.5rem 2rem;
+            min-height: 500px;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .day-page-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 3px solid var(--accent-gold);
+        }
+
+        .day-number-large {
+            font-family: 'Crimson Pro', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--accent-red);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .day-number-large::after {
+            content: attr(data-weekday);
+            font-family: 'Noto Sans TC', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: var(--ink-medium);
+            margin-left: 0.8rem;
+        }
+
+        .day-date {
+            display: none;
+        }
+
+        .day-location {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 1.8rem;
+            color: var(--accent-blue);
+            font-weight: 600;
+        }
+
+        /* Info Cards */
+        .info-section {
+            margin-bottom: 2rem;
+        }
+
+        .info-card {
+            background:
+                linear-gradient(135deg,
+                    rgba(255, 255, 255, 0.9) 0%,
+                    rgba(250, 248, 243, 0.95) 50%,
+                    rgba(255, 255, 255, 0.9) 100%);
+            padding: 1.2rem;
+            border-radius: 12px;
+            border-left: 4px dashed var(--accent-gold);
+            box-shadow:
+                0 2px 8px rgba(193, 39, 45, 0.08),
+                0 4px 16px rgba(61, 90, 128, 0.06),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            margin-bottom: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 15% 20%, rgba(139, 195, 139, 0.04) 0%, transparent 40%),
+                radial-gradient(circle at 85% 80%, rgba(212, 165, 116, 0.03) 0%, transparent 40%);
+            pointer-events: none;
+        }
+
+        .info-card h4 {
+            font-size: 1.1rem;
+            color: var(--accent-blue);
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+        }
+
+        .info-card p {
+            color: var(--ink-dark);
+            line-height: 1.7;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-card ul {
+            margin-left: 1.2rem;
+            color: var(--ink-dark);
+        }
+
+        .info-card li {
+            margin-bottom: 0.3rem;
+        }
+
+        /* Itinerary Section */
+        .itinerary-section {
+            background:
+                radial-gradient(circle at 25% 15%, rgba(139, 195, 139, 0.06) 0%, transparent 50%),
+                radial-gradient(circle at 75% 85%, rgba(212, 165, 116, 0.05) 0%, transparent 50%),
+                linear-gradient(135deg, rgba(250, 248, 243, 0.98) 0%, rgba(255, 255, 255, 0.95) 100%);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            border-left: 4px dashed var(--accent-red);
+            box-shadow:
+                0 3px 10px rgba(193, 39, 45, 0.08),
+                0 6px 20px rgba(61, 90, 128, 0.05),
+                inset 0 1px 0 rgba(255, 255, 255, 0.7);
+            position: relative;
+        }
+
+        .itinerary-section h3 {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 1.4rem;
+            color: var(--accent-red);
+            margin-bottom: 1rem;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px dotted rgba(212, 165, 116, 0.3);
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 32px;
+            top: 1.8rem;
+            width: 8px;
+            height: 8px;
+            background: var(--accent-red);
+            border-radius: 50%;
+            box-shadow:
+                0 0 0 3px rgba(193, 39, 45, 0.15),
+                0 0 0 6px rgba(193, 39, 45, 0.08);
+        }
+
+        .timeline-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .timeline-time {
+            flex-shrink: 0;
+            width: 80px;
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--accent-red);
+            position: relative;
+            cursor: pointer;
+            user-select: none;
+            filter: drop-shadow(0 2px 4px rgba(193, 39, 45, 0.15));
+        }
+
+        .timeline-time:hover {
+            color: var(--accent-blue);
+            filter: drop-shadow(0 2px 6px rgba(61, 90, 128, 0.2));
+        }
+
+        .timeline-time.adjusted {
+            color: var(--accent-gold);
+            filter: drop-shadow(0 2px 4px rgba(212, 165, 116, 0.2));
+        }
+
+        .time-adjuster {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--paper-light);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-medium);
+            z-index: 1000;
+            min-width: 350px;
+        }
+
+        .time-adjuster-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        .time-adjuster h3 {
+            color: var(--accent-red);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .time-adjuster label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--ink-dark);
+            font-weight: 500;
+        }
+
+        .time-adjuster input {
+            width: 100%;
+            padding: 0.8rem;
+            font-size: 1.1rem;
+            border: 2px solid var(--accent-gold);
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+
+        .time-adjuster-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+        }
+
+        .time-adjuster button {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: 'Noto Sans TC', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .btn-cancel {
+            background: var(--paper-cream);
+            color: var(--ink-dark);
+        }
+
+        .btn-cancel:hover {
+            background: var(--ink-light);
+            color: var(--paper-light);
+        }
+
+        .btn-apply {
+            background: var(--accent-red);
+            color: white;
+        }
+
+        .btn-apply:hover {
+            background: #d63946;
+        }
+
+        .btn-reset {
+            background: var(--accent-gold);
+            color: var(--ink-dark);
+        }
+
+        .btn-reset:hover {
+            background: #e5b684;
+        }
+
+        .timeline-content {
+            flex: 1;
+        }
+
+        .timeline-content h4 {
+            font-size: 1.1rem;
+            color: var(--accent-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content p {
+            color: var(--ink-dark);
+            line-height: 1.7;
+        }
+
+        .timeline-content .note {
+            font-size: 0.9rem;
+            color: var(--ink-medium);
+            font-style: italic;
+            margin-top: 0.3rem;
+        }
+
+        /* Overview page */
+        .route-map {
+            background:
+                radial-gradient(circle at 30% 20%, rgba(139, 195, 139, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(212, 165, 116, 0.08) 0%, transparent 50%),
+                linear-gradient(135deg, rgba(250, 248, 243, 0.95) 0%, rgba(255, 255, 255, 0.9) 100%);
+            padding: 2rem;
+            border-radius: 16px;
+            margin: 2rem 0;
+            text-align: center;
+            border: 2px dashed var(--accent-gold);
+            box-shadow:
+                0 4px 12px rgba(193, 39, 45, 0.08),
+                0 8px 24px rgba(61, 90, 128, 0.06),
+                inset 0 2px 0 rgba(255, 255, 255, 0.6);
+        }
+
+        .route-flow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-top: 1.5rem;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            padding: 0.5rem 0;
+        }
+
+        .route-stop {
+            flex-shrink: 0;
+            padding: 0.8rem 1.2rem;
+            background:
+                linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(250, 248, 243, 0.9) 100%);
+            border-radius: 12px;
+            border: 2px solid var(--accent-gold);
+            font-weight: 600;
+            color: var(--ink-dark);
+            font-size: 0.95rem;
+            white-space: nowrap;
+            box-shadow:
+                0 2px 6px rgba(193, 39, 45, 0.1),
+                0 4px 12px rgba(61, 90, 128, 0.08);
+            position: relative;
+        }
+
+        .route-stop::after {
+            content: '';
+            position: absolute;
+            bottom: 3px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40%;
+            height: 2px;
+            background: radial-gradient(ellipse, rgba(193, 39, 45, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .route-arrow {
+            flex-shrink: 0;
+            font-size: 1.3rem;
+            color: var(--accent-red);
+            filter: drop-shadow(0 2px 4px rgba(193, 39, 45, 0.2));
+        }
+
+        .accommodation {
+            background: linear-gradient(135deg, rgba(212, 165, 116, 0.15) 0%, rgba(61, 90, 128, 0.1) 100%);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            border-left: 3px solid var(--accent-gold);
+        }
+
+        .accommodation h5 {
+            color: var(--accent-blue);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .accommodation p {
+            font-size: 0.95rem;
+            color: var(--ink-dark);
+            line-height: 1.6;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 0;
+            }
+
+            .booklet {
+                border-radius: 0;
+                border: none;
+            }
+
+            /* 手機封面優化 */
+            .cover {
+                min-height: 100vh;
+                padding: 2rem 1.5rem 3rem;
+                background-image:
+                    linear-gradient(to bottom,
+                        rgba(255, 255, 255, 0.7) 0%,
+                        rgba(255, 255, 255, 0.5) 20%,
+                        rgba(255, 255, 255, 0.3) 40%,
+                        rgba(255, 255, 255, 0.3) 60%,
+                        rgba(255, 255, 255, 0.5) 80%,
+                        rgba(255, 255, 255, 0.7) 100%),
+                    url('https://pfst.cf2.poecdn.net/base/image/873dc775463038f2ef342a7be6a47d8b2ef00f6871605ed22916feb274c2ae1b?w=768&h=1376');
+                background-size: cover;
+                background-position: center center;
+                background-repeat: no-repeat;
+            }
+
+            .cover h1 {
+                font-size: 2rem;
+                margin-bottom: 0.8rem;
+                letter-spacing: 0.1em;
+            }
+
+            .cover .subtitle {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .cover .date-range {
+                font-size: 1rem;
+                padding: 0.8rem 1.5rem;
+            }
+
+            /* 導航標籤優化 */
+            .nav-tabs {
+                position: sticky;
+                top: 0;
+                z-index: 100;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-tab {
+                min-width: 65px;
+                padding: 0.9rem 0.4rem;
+                font-size: 0.85rem;
+            }
+
+            /* 頁面內容優化 */
+            .page {
+                padding: 1.5rem 1rem;
+            }
+
+            .day-page-header {
+                margin-bottom: 1.5rem;
+                padding-bottom: 1rem;
+            }
+
+            .day-number-large {
+                font-size: 2.5rem;
+            }
+
+            .day-date {
+                font-size: 1.1rem;
+            }
+
+            .day-location {
+                font-size: 1.3rem;
+            }
+
+            /* 資訊卡片優化 */
+            .info-card {
+                padding: 1rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .info-card h4 {
+                font-size: 1rem;
+            }
+
+            .info-card p,
+            .info-card li {
+                font-size: 0.9rem;
+            }
+
+            /* 時間軸優化 */
+            .timeline-item {
+                flex-direction: column;
+                gap: 0.5rem;
+                padding-bottom: 1.2rem;
+                margin-bottom: 1.2rem;
+            }
+
+            .timeline-time {
+                width: auto;
+                font-size: 1.1rem;
+                padding: 0.3rem 0.8rem;
+                background: var(--accent-red);
+                color: white;
+                border-radius: 20px;
+                display: inline-block;
+            }
+
+            .timeline-time.adjusted {
+                background: var(--accent-gold);
+                color: var(--ink-dark);
+            }
+
+            .timeline-content h4 {
+                font-size: 1rem;
+            }
+
+            .timeline-content p {
+                font-size: 0.9rem;
+            }
+
+            .timeline-content .note {
+                font-size: 0.85rem;
+            }
+
+            /* 路線流程優化 */
+            .route-flow {
+                justify-content: flex-start;
+                gap: 0.5rem;
+            }
+
+            .route-stop {
+                padding: 0.6rem 1rem;
+                font-size: 0.85rem;
+            }
+
+            .route-arrow {
+                font-size: 1.1rem;
+            }
+
+            /* 時間調整器優化 */
+            .time-adjuster {
+                min-width: auto;
+                width: 90%;
+                max-width: 350px;
+                padding: 1.5rem;
+            }
+
+            .time-adjuster h3 {
+                font-size: 1.1rem;
+            }
+
+            .time-adjuster input {
+                font-size: 16px; /* 防止手機縮放 */
+                padding: 0.9rem;
+            }
+
+            /* 住宿資訊優化 */
+            .accommodation {
+                padding: 0.9rem;
+                margin-top: 0.8rem;
+            }
+
+            .accommodation h5 {
+                font-size: 0.95rem;
+            }
+
+            .accommodation p {
+                font-size: 0.85rem;
+            }
+
+            /* 總覽頁面優化 */
+            .route-map {
+                padding: 1.2rem;
+                margin: 1rem 0;
+            }
+
+            .route-map h3 {
+                font-size: 1.1rem;
+            }
+
+            .itinerary-section {
+                padding: 1.2rem;
+                margin-bottom: 1rem;
+            }
+
+            .itinerary-section h3 {
+                font-size: 1.2rem;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>Hoshi or Wonwoo?</h1>
-    <button class="button-default" id="loveButton">Wonwoo</button>
-    <button class="button-default" id="noButton">Hoshi!</button>
-    <button class="button-sylus" id="sylusButton">Sylus</button>
+    <div class="booklet">
+        <!-- Cover Page -->
+        <div class="cover">
+            <div class="cover-content">
+                <h1>日本中部之旅</h1>
+                <p class="subtitle">名古屋・金澤・伊勢・大阪</p>
+                <div class="date-range">📅 2024.11.29 - 12.09</div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="nav-tabs">
+            <button class="nav-tab active" data-page="overview">總覽</button>
+            <button class="nav-tab" data-page="day1">11/29</button>
+            <button class="nav-tab" data-page="day2">11/30</button>
+            <button class="nav-tab" data-page="day3">12/1</button>
+            <button class="nav-tab" data-page="day4">12/2</button>
+            <button class="nav-tab" data-page="day5">12/3</button>
+            <button class="nav-tab" data-page="day6">12/4</button>
+            <button class="nav-tab" data-page="day7">12/5</button>
+            <button class="nav-tab" data-page="day8">12/6</button>
+            <button class="nav-tab" data-page="day9">12/7</button>
+        </div>
+
+        <!-- Overview Page -->
+        <div class="page active" id="overview">
+            <div class="day-page-header">
+                <h2 class="day-location" style="font-size: 2.5rem;">🗺️ 行程總覽</h2>
+                <p style="color: var(--ink-medium); margin-top: 0.5rem;">為期10天的日本中部深度之旅</p>
+            </div>
+
+            <div class="route-map">
+                <h3 style="color: var(--accent-blue); margin-bottom: 1rem;">旅行路線</h3>
+                <div class="route-flow">
+                    <div class="route-stop">名古屋<br><small>11/29-12/01</small></div>
+                    <div class="route-arrow">→</div>
+                    <div class="route-stop">白川鄉<br><small>12/01</small></div>
+                    <div class="route-arrow">→</div>
+                    <div class="route-stop">金澤<br><small>12/01-12/03</small></div>
+                    <div class="route-arrow">→</div>
+                    <div class="route-stop">伊勢<br><small>12/03-12/05</small></div>
+                    <div class="route-arrow">→</div>
+                    <div class="route-stop">大阪<br><small>12/05-12/09</small></div>
+                </div>
+            </div>
+
+            <div class="itinerary-section">
+                <h3>📅 每日亮點</h3>
+                <div style="display: grid; gap: 1rem;">
+                    <div style="padding: 1rem; background: var(--paper-light); border-radius: 6px;">
+                        <strong style="color: var(--accent-red);">Day 1 (11/29)</strong> - 抵達名古屋，世界の山ちゃん 金山総本店
+                    </div>
+                    <div style="padding: 1rem; background: var(--paper-light); border-radius: 6px;">
+                        <strong style="color: var(--accent-red);">Day 2 (11/30)</strong> - あつた蓬莱軒、SEVENTEEN演唱會
+                    </div>
+                    <div style="padding: 1rem; background: var(--paper-light); border-radius: 6px;">
+                        <strong style="color: var(--accent-red);">Day 3 (12/01)</strong> - 租車、白川鄉合掌造、前往金澤
+                    </div>
+                    <div style="padding: 1rem; background: var(--paper-light); border-radius: 6px;">
+                        <strong style="color: var(--accent-red);">Day 4 (12/02)</strong> - 大國鮨、兼六園、金沢21世紀美術館、田村蟹料理
+                    </div>
+                    <div style="padding: 1rem; background: var(--paper-light); border-radius: 6px;">
+                        <strong style="color: var(--accent-red);">Day 5 (12/03)</strong> - 香林寺、前往伊勢
+                    </div>
+                    <div style="padding: 1rem; background: var(--paper-light); border-radius: 6px;">
+                        <strong style="color: var(--accent-red);">Day 6 (12/04)</strong> - 生蠔放題、鳥羽水族館、伊勢龍蝦
+                    </div>
+                    <div style="padding: 1rem; background: var(--paper-light); border-radius: 6px;">
+                        <strong style="color: var(--accent-red);">Day 7 (12/05)</strong> - 伊勢神宮、おかげ横丁、前往大阪
+                    </div>
+                    <div style="padding: 1rem; background: var(--paper-light); border-radius: 6px;">
+                        <strong style="color: var(--accent-red);">Day 8 (12/06)</strong> - おでん まる米、SEVENTEEN演唱會
+                    </div>
+                    <div style="padding: 1rem; background: var(--paper-light); border-radius: 6px;">
+                        <strong style="color: var(--accent-red);">Day 9 (12/07)</strong> - 牛舌、逛街、返程
+                    </div>
+                </div>
+            </div>
+
+            <div class="itinerary-section">
+                <h3>🏨 住宿資訊</h3>
+                <div style="display: grid; gap: 1rem;">
+                    <div style="padding: 1rem; background: var(--paper-light); border-radius: 6px;">
+                        <strong style="color: var(--accent-blue);">名古屋 (11/29-12/01)</strong><br>
+                        marui home hibino<br>
+                        <small>愛知縣名古屋市熱田區比比野町6號，郵編：456-0074</small>
+                    </div>
+                    <div style="padding: 1rem; background: var(--paper-light); border-radius: 6px;">
+                        <strong style="color: var(--accent-blue);">金澤 (12/01-12/03)</strong><br>
+                        天然温泉 加賀の宝泉 御宿 野乃金沢<br>
+                        <small>石川県金沢市下堤町1-1</small>
+                    </div>
+                    <div style="padding: 1rem; background: var(--paper-light); border-radius: 6px;">
+                        <strong style="color: var(--accent-blue);">伊勢 (12/03-12/05)</strong><br>
+                        山小舎 (Yamakoma)<br>
+                        <small>民泊やまこま MINPAKU YAMAKOMA<br><a href="https://maps.app.goo.gl/qquZATfjZ9jGa4iUA" target="_blank" style="color: var(--accent-blue); text-decoration: underline;">〒519-2165 三重県多気郡多気町田中94番地</a></small>
+                    </div>
+                    <div style="padding: 1rem; background: var(--paper-light); border-radius: 6px;">
+                        <strong style="color: var(--accent-blue);">大阪 (12/05-12/09)</strong><br>
+                        太INN-弍*天下茶屋<br>
+                        <small>2-chōme-11-4 Tengachaya, Osaka, Osaka 557-0014</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 1 -->
+        <div class="page" id="day1">
+            <div class="day-page-header">
+                <div class="day-number-large" data-weekday="（五）">11/29</div>
+                <div class="day-location">名古屋</div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-card">
+                    <h4>🌤️ 天氣預報</h4>
+                    <p><strong>氣溫：</strong>10°C - 16°C（涼爽）</p>
+                    <p><strong>天氣：</strong>晴天或多雲，降雨機率低</p>
+                    <p><strong>穿著建議：</strong>長袖上衣 + 薄外套，晚上較涼建議帶圍巾</p>
+                </div>
+
+                <div class="info-card">
+                    <h4>💡 旅行貼士</h4>
+                    <ul>
+                        <li>抵達後先在機場兌換少量日圓現金（約￥10,000）</li>
+                        <li>μSKY 特急可在機場購票，約￥1,250/人</li>
+                        <li>世界の山ちゃん營業到深夜，不用擔心太晚</li>
+                        <li>記得調整手機時區為日本時間（GMT+9）</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4>🚇 交通攻略</h4>
+                    <p><strong>機場到市區：</strong>μSKY 特急（名鐵）</p>
+                    <p><strong>時間：</strong>約28分鐘直達名古屋站</p>
+                    <p><strong>費用：</strong>￥1,250/人</p>
+                    <p><strong>購票：</strong>在2F 出發大廳的名鐵售票機購買</p>
+                </div>
+            </div>
+
+            <div class="itinerary-section">
+                <h3>📍 今日行程</h3>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">15:35</div>
+                    <div class="timeline-content">
+                        <h4>✈️ 香港國際機場起飛</h4>
+                        <p>準備開始精彩的日本之旅！</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">20:05</div>
+                    <div class="timeline-content">
+                        <h4>🛬 抵達名古屋中部國際機場</h4>
+                        <p>新特麗亞名古屋中部國際機場客運大樓 2</p>
+                        <p class="note">日本時間，記得調整手錶！</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">20:30</div>
+                    <div class="timeline-content">
+                        <h4>🚄 μSKY特急</h4>
+                        <p>從機場前往名古屋市中心</p>
+                        <p class="note">車程約28分鐘，直達名古屋站</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">21:30</div>
+                    <div class="timeline-content">
+                        <h4>🏠 marui home hibino - Check-in</h4>
+                        <p>放下行李，稍作休息</p>
+                        <p class="note">地址：愛知縣名古屋市熱田區比比野町6號</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">22:00</div>
+                    <div class="timeline-content">
+                        <h4>🍗 世界の山ちゃん 金山総本店</h4>
+                        <p>名古屋名物手羽先（炸雞翅）專門店！</p>
+                        <p class="note"><strong>地址：</strong><a href="https://maps.app.goo.gl/NhXjP9wB86JKEwgg6" target="_blank" style="color: var(--accent-blue); text-decoration: underline;">〒460-0022 愛知県名古屋市中区金山1-15-10</a><br>
+                        <strong>電話：</strong>052-331-9989<br>
+                        <strong>交通：</strong>從住宿步行約10分鐘<br>
+                        招牌：幻の手羽先、味噌串炸</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accommodation">
+                <h5>🏨 住宿</h5>
+                <p><strong>marui home hibino</strong></p>
+                <p>愛知縣名古屋市熱田區比比野町6號，郵編：456-0074</p>
+            </div>
+        </div>
+
+        <!-- Day 2 -->
+        <div class="page" id="day2">
+            <div class="day-page-header">
+                <div class="day-number-large" data-weekday="（六）">11/30</div>
+                <div class="day-location">名古屋</div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-card">
+                    <h4>🌤️ 天氣預報</h4>
+                    <p><strong>氣溫：</strong>11°C - 17°C</p>
+                    <p><strong>天氣：</strong>多雲時晴</p>
+                    <p><strong>穿著建議：</strong>舒適的長袖+外套，演唱會可能會熱，建議洋蔥式穿搭</p>
+                </div>
+
+                <div class="info-card">
+                    <h4>💡 旅行貼士</h4>
+                    <ul>
+                        <li>あつた蓬莱軒很熱門，建議11:00前或14:00後前往</li>
+                        <li>演唱會入場可能需要排隊，建議17:00前抵達</li>
+                        <li>應援物品記得帶克拉棒！</li>
+                        <li>演唱會後餐廳可能客滿，可考慮便利商店或24h食堂</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4>🚇 交通攻略</h4>
+                    <p><strong>到中部機場：</strong>名鐵特急，約30分鐘</p>
+                    <p><strong>到バンテリンドーム：</strong>名古屋站搭JR中央線到大曾根站（10分鐘），步行10分鐘</p>
+                    <p><strong>建議：</strong>購買名古屋市營地鐵一日券（￥870）划算</p>
+                </div>
+            </div>
+
+            <div class="itinerary-section">
+                <h3>📍 今日行程</h3>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">10:00</div>
+                    <div class="timeline-content">
+                        <h4>☀️ 起床</h4>
+                        <p>在Weverse上預購克拉棒（SEVENTEEN應援棒）</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">11:00</div>
+                    <div class="timeline-content">
+                        <h4>📱 前往中部國際機場</h4>
+                        <p>於セントラルジャパントラベルセンター領取 HanaCell SIM卡</p>
+                        <p class="note">記得攜帶護照和預約確認信<br>
+                        <strong>交通：</strong>從住宿搭名鐵μSKY特急，約30分鐘</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">13:00</div>
+                    <div class="timeline-content">
+                        <h4>🍱 あつた蓬莱軒 松坂屋店</h4>
+                        <p>名古屋三大名物之一：鰻魚飯三吃（ひつまぶし）</p>
+                        <p class="note">超人氣店家，可能需要等位<br>
+                        <strong>地址：</strong><a href="https://maps.app.goo.gl/3sCG645X1ds2wtTa9" target="_blank" style="color: var(--accent-blue); text-decoration: underline;">〒460-8430 愛知県名古屋市中区栄3-16-1 松坂屋名古屋店 本館 B2F</a><br>
+                        <strong>電話：</strong>052-242-1122<br>
+                        <strong>交通：</strong>從機場回名古屋站，轉地鐵東山   至栄站，步行5分鐘（總時程約1小時）</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">15:00</div>
+                    <div class="timeline-content">
+                        <h4>🛍️ 栄商圈逛街</h4>
+                        <p>松坂屋百貨、三越百貨</p>
+                        <p>My Only Fragrance NAGOYA（客製化香水）</p>
+                        <p class="note"><strong>My Only Fragrance：</strong><a href="https://maps.app.goo.gl/FBdEAMnuxB3usJDb7" target="_blank" style="color: var(--accent-blue); text-decoration: underline;">〒460-0008 愛知県名古屋市中区栄3-31-7 大河内ビル 3F</a><br>
+                        <strong>電話：</strong>052-684-5318<br>
+                        <strong>交通：</strong>就在松坂屋附近，步行3分鐘</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">17:00</div>
+                    <div class="timeline-content">
+                        <h4>🚇 前往バンテリンドーム ナゴヤ</h4>
+                        <p class="note"><strong>交通：</strong>從栄站搭地鐵東山線至名古屋站，轉JR中央線至大曾根站（約20分鐘），步行10分鐘<br>
+                        <strong>建議：</strong>提早出發避開入場人潮</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">18:00</div>
+                    <div class="timeline-content">
+                        <h4>🎤 SEVENTEEN WORLD TOUR [NEW_] IN JAPAN</h4>
+                        <p>バンテリンドーム ナゴヤ (VANTELIN DOME NAGOYA)</p>
+                        <p class="note"><strong>地址：</strong><a href="https://maps.app.goo.gl/7NTnaKXwHN3JDzCY7" target="_blank" style="color: var(--accent-blue); text-decoration: underline;">〒461-0047 愛知県名古屋市東区大幸南1-1-1</a><br>
+                        <strong>電話：</strong>052-719-2121<br>
+                        演唱會時間：18:00-21:30，記得提早入場！</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">22:00</div>
+                    <div class="timeline-content">
+                        <h4>🍜 晚餐（建議）</h4>
+                        <p>名古屋站周邊：矢場とん（24h營業）、風来坊（炸雞翅）</p>
+                        <p>榮站周邊：世界の山ちゃん、まるや本店（鰻魚飯）</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accommodation">
+                <h5>🏨 住宿</h5>
+                <p><strong>marui home hibino</strong></p>
+                <p>愛知縣名古屋市熱田區比比野町6號</p>
+            </div>
+        </div>
+
+        <!-- Day 3 -->
+        <div class="page" id="day3">
+            <div class="day-page-header">
+                <div class="day-number-large" data-weekday="（日）">12/1</div>
+                <div class="day-location">名古屋 → 白川鄉 → 金澤</div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-card">
+                    <h4>🌤️ 天氣預報</h4>
+                    <p><strong>名古屋：</strong>10°C - 15°C，多雲</p>
+                    <p><strong>白川鄉：</strong>2°C - 8°C，可能有雪或雨</p>
+                    <p><strong>金澤：</strong>8°C - 12°C，陰天</p>
+                    <p><strong>穿著建議：</strong>保暖外套、圍巾、手套，白川鄉可能需要防水鞋</p>
+                </div>
+
+                <div class="info-card">
+                    <h4>💡 旅行貼士</h4>
+                    <ul>
+                        <li>12月白   鄉可能開始下雪，路況注意安全</li>
+                        <li>雪地駕駛：保持車距、慢速行駛、避免急剎車</li>
+                        <li>白川鄉展望台停車場可能客滿，建議14:00前抵達</li>
+                        <li>高速公路SA可以休息用餐，推薦ひるがの高原SA</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4>🚗 交通攻略</h4>
+                    <p><strong>移動方式：</strong>自駕</p>
+                    <p><strong>路線：</strong>名古屋 → 東海北陸道 → 白川鄉 → 白川鄉IC → 東海北陸道 → 北陸道 → 金澤</p>
+                    <p><strong>總車程：</strong>約5-6小時（含遊覽時間）</p>
+                    <p><strong>過路費：</strong>約￥6,500（名古屋→白川鄉→金澤）</p>
+                    <p><strong>注意：</strong>冬季需要雪胎或雪鏈，租車時確認車輛配備</p>
+                </div>
+            </div>
+
+            <div class="itinerary-section">
+                <h3>📍 今日行程</h3>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">10:00</div>
+                    <div class="timeline-content">
+                        <h4>🚗 Nippon Rent-A-Car 名古屋金山站</h4>
+                        <p>取車，開始自駕之旅！</p>
+                        <p class="note"><strong>地址：</strong><a href="https://maps.app.goo.gl/i1zJkKrBuboWnLr19" target="_blank" style="color: var(--accent-blue); text-decoration: underline;">〒460-0022 愛知県名古屋市中区金山1-14-18</a><br>
+                        <strong>電話：</strong>052-339-0919<br>
+                        記得攜帶國際駕照和護照，確認雪胎配備</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">10:30</div>
+                    <div class="timeline-content">
+                        <h4>🥐 na 麵包店</h4>
+                        <p>今池的人氣麵包店，早午餐</p>
+                        <p class="note"><strong>地址：</strong><a href="https://maps.app.goo.gl/UmFVAcpNUau79u3WA" target="_blank" style="color: var(--accent-blue); text-decoration: underline;">〒464-0075 愛知県名古屋市千種区内山3-31-27</a><br>
+                        <strong>電話：</strong>052-688-7448<br>
+                        <strong>駕車時間：</strong>從Nippon Rent-A-Car 金山站出發，約15分鐘<br>
+                        預留1.5-2小時慢慢享用</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">12:30</div>
+                    <div class="timeline-content">
+                        <h4>🛣️ 出發前往白川鄉</h4>
+                        <p>車程約2.5-3小時，途經東海北陸自動車道</p>
+                        <p class="note"><strong>目的地：</strong>白川鄉合掌造聚落（停車場：せせらぎ公園駐車場）<br>
+                        <strong>地址：</strong><a href="https://maps.app.goo.gl/p9YiFGoyT1mfeGSQA" target="_blank" style="color: var(--accent-blue); text-decoration: underline;">〒509-1592 岐阜県大野郡白川村荻町</a><br>
+                        <strong>電話：</strong>05769-6-1013（白川鄉觀光協會）<br>
+                        <strong>駕車時間：</strong>從na麵包店出發，約2.5-3小時<br>
+                        建議在ひるがの高原SA休息</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">15:00</div>
+                    <div class="timeline-content">
+                        <h4>🏔️ 白川鄉合掌造聚落</h4>
+                        <p>世界文化遺產，童話般的合掌造建築</p>
+                        <p>推薦：展望台（絕美雪景）、和田家、明善寺</p>
+                        <p class="note">12月初可能開始下雪，風景絕美！停車￥500</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">17:00</div>
+                    <div class="timeline-content">
+                        <h4>🚗 前往金澤</h4>
+                        <p>車程約1.5小時</p>
+                        <p class="note"><strong>目的地：</strong>天然温泉 加賀の宝泉 御宿 野乃金沢<br>
+                        <strong>地址：</strong><a href="https://maps.app.goo.gl/Mc7o89vJwf4MKKH97" target="_blank" style="color: var(--accent-blue); text-decoration: underline;">〒920-0864 石川県金沢市下堤町1-1</a><br>
+                        <strong>電話：</strong>076-267-6488<br>
+                        <strong>駕車時間：</strong>從白川鄉出發，約1.5小時</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">19:00</div>
+                    <div class="timeline-content">
+                        <h4>🍶 黒百合（くろゆり）</h4>
+                        <p>金澤當地人氣居酒屋</p>
+                        <p>推薦：地酒、刺身、のど黒（喉黑魚）、鄉土料理</p>
+                        <p class="note"><strong>地址：</strong><a href="https://maps.app.goo.gl/5xUzLY3ayXrdocRNA" target="_blank" style="color: var(--accent-blue); text-decoration: underline;">〒920-0981 石川県金沢市片町2-21-2</a><br>
+                        <strong>電話：</strong>076-223-6617<br>
+                        <strong>交通：</strong>從酒店步行約15分鐘，或駕車5分鐘</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accommodation">
+                <h5>🏨 住宿</h5>
+                <p><strong>天然温泉 加賀の宝泉 御宿 野乃金沢</strong></p>
+                <p>石川県金沢市下堤町1-1</p>
+                <p>可享受天然溫泉，消除一天駕駛疲勞</p>
+            </div>
+        </div>
+
+        <!-- Day 4 -->
+        <div class="page" id="day4">
+            <div class="day-page-header">
+                <div class="day-number-large" data-weekday="（一）">12/2</div>
+                <div class="day-location">金澤</div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-card">
+                    <h4>🌤️ 天氣預報</h4>
+                    <p><strong>氣溫：</strong>6°C - 11°C</p>
+                    <p><strong>天氣：</strong>陰天，可能有小雨</p>
+                    <p><strong>穿著建議：</strong>防風外套、雨傘、舒適的步行鞋</p>
+                </div>
+
+                <div class="info-card">
+                    <h4>💡 旅行貼士</h4>
+                    <ul>
+                        <li>兼六園冬季有「雪吊」景觀，絕美！</li>
+                        <li>21世紀美術館週一休館，今天週一需確認開放時間</li>
+                        <li>ひがし茶屋街傍晚最美，燈籠亮起時很有氛圍</li>
+                        <li>金箔冰淇淋是必吃！推薦箔一金箔店</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4>🚇 交通攻略</h4>
+                    <p><strong>建議：</strong>購買城下町金澤周遊巴士一日券（￥600）</p>
+                    <p><strong>路線：</strong>兼六園→21世紀美術館（步行5分）→ひがし茶屋街（巴士15分）</p>
+                    <p><strong>停車：</strong>兼六園附近有多個停車場，￥350/小時</p>
+                </div>
+            </div>
+
+            <div class="itinerary-section">
+                <h3>📍 今日行程</h3>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">11:00</div>
+                    <div class="timeline-content">
+                        <h4>🍣 大國鮨</h4>
+                        <p>金澤頂級壽司店（已預約）</p>
+                        <p>使用當天從近江町市場採購的新鮮海產</p>
+                        <p class="note"><strong>地址：</strong><a href="https://maps.app.goo.gl/jgyywVeAo7zdo1JJ6" target="_blank" style="color: var(--accent-blue); text-decoration: underline;">〒920-0981 石川県金沢市片町1-10-3</a><br>
+                        <strong>電話：</strong>076-221-3018<br>
+                        <strong>交通：</strong>從酒店駕車約10分鐘，或搭巴士約15分鐘<br>
+                        記得準時到達，享受師傅的精湛技藝。預算￥8,000-12,000/人</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">13:00</div>
+                    <div class="timeline-content">
+                        <h4>🌸 兼六園</h4>
+                        <p>日本三大名園之一</p>
+                        <p>必看：徽軫灯籠、霞ヶ池、唐崎松的雪吊</p>
+                        <p class="note"><strong>地址：</strong><a href="https://maps.app.goo.gl/croXT3b38go1GdP69" target="_blank" style="color: var(--accent-blue); text-decoration: underline;">〒920-0936 石川県金沢市兼六町1</a><br>
+                        <strong>電話：</strong>076-234-3800<br>
+                        <strong>交通：</strong>從大國鮨駕車約8分鐘，停車場￥350/小時<br>
+                        門票：￥320，建議遊覽1.5小時</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">15:00</div>
+                    <div class="timeline-content">
+                        <h4>🎨 金沢21世紀美術館</h4>
+                        <p>當代藝術美術館</p>
+                        <p>必看：游泳池（Leandro Erlich作品）</p>
+                        <p class="note"><strong>地址：</strong><a href="https://maps.app.goo.gl/8gbHA8ce86hjvR5e7" target="_blank" style="color: var(--accent-blue); text-decoration: underline;">〒920-8509 石川県金沢市広坂1-2-1</a><br>
+                        <strong>電話：</strong>076-220-2800<br>
+                        <strong>交通：</strong>從兼六園步行5分鐘<br>
+                        免費區域開放，付費展覽另計。週一部分展廳休館</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">16:30</div>
+                    <div class="timeline-content">
+                        <h4>🍵 ひがし茶屋街</h4>
+                        <p>保存完好的江戶時代茶屋街</p>
+                        <p>推薦：箔一金箔店（金箔冰淇淋）、志摩茶屋、懷華樓</p>
+                        <p class="note"><strong>地址：</strong><a href="https://maps.app.goo.gl/DSLmyQVpFLJzWTc7A" target="_blank" style="color: var(--accent-blue); text-decoration: underline;">〒920-0831 石川県金沢市東山</a><br>
+                        <strong>電話：</strong>076-232-5555（金澤市觀光協會）<br>
+                        <strong>交通：</strong>從21世紀美術館駕車約10分鐘，或搭巴士約15分鐘<br>
+                        傍晚時分，燈籠亮起時最美</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">18:30</div>
+                    <div class="timeline-content">
+                        <h4>🦀 金沢 田村</h4>
+                        <p>螃蟹料理專門店</p>
+                        <p>12   是加能蟹（ズワイガニ）和香箱蟹的季節！</p>
+                        <p class="note"><strong>地址：</strong><a href="https://maps.app.goo.gl/CVr1bKsrSaddAzLp6" target="_blank" style="color: var(--accent-blue); text-decoration: underline;">〒920-0981 石川県金沢市片町2-29-7</a><br>
+                        <strong>電話：</strong>076-231-2055<br>
+                        <strong>交通：</strong>從ひがし茶屋街駕車約10分鐘<br>
+                        推薦：蟹刺身、蟹味噌、焼蟹、蟹鍋。預算￥8,000-15,000/人</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accommodation">
+                <h5>🏨 住宿</h5>
+                <p><strong>天然温泉 加賀の宝泉 御宿 野乃金沢</strong></p>
+                <p>石川県金沢市下堤町1-1</p>
+            </div>
+        </div>
+
+        <!-- Day 5 -->
+        <div class="page" id="day5">
+            <div class="day-page-header">
+                <div class="day-number-large" data-weekday="（二）">12/3</div>
+                <div class="day-location">金澤 → 伊勢</div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-card">
+                    <h4>🌤️ 天氣預報</h4>
+                    <p><strong>金澤：</strong>7°C - 12°C，陰天</p>
+                    <p><strong>伊勢：</strong>9°C - 16°C，晴天</p>
+                    <p><strong>穿著建議：</strong>舒適的駕駛服裝，準備外套應對溫差</p>
+                </div>
+
+                <div class="info-card">
+                    <h4>💡 旅行貼士</h4>
+                    <ul>
+                        <li>今天車程較長，建議多休息避免疲勞駕駛</li>
+                        <li>推薦休息站：刈谷PA（美食廣場）、多賀SA</li>
+                        <li>伊勢比金澤溫暖，抵達後可換輕便衣物</li>
+                        <li>向井酒の店建議預約，當地人氣店</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4>🚗 交通攻略</h4>
+                    <p><strong>移動方式：</strong>自駕</p>
+                    <p><strong>路線：</strong>金澤 → 北陸道 → 名神高速 → 東名阪道 → 伊勢道 → 伊勢</p>
+                    <p><strong>車程：</strong>約4.5-5小時（不含休息）</p>
+                    <p><strong>過路費：</strong>約￥8,500</p>
+                    <p><strong>建議休息：</strong>刈谷PA、多賀SA</p>
+                </div>
+            </div>
+
+            <div class="itinerary-section">
+                <h3>📍 今日行程</h3>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">11:00</div>
+                    <div class="timeline-content">
+                        <h4>🍜 喜久や クロスゲート金沢店</h4>
+                        <p>金澤在地美食，早午餐</p>
+                        <p class="note"><strong>地址：</strong><a href="https://maps.app.goo.gl/7aQzAEjyrWXf9TLs7" target="_blank" style="color: var(--accent-blue); text-decoration: underline;">〒920-8201 石川県金沢市鞍月東1-9</a><br>
+                        <strong>電話：</strong>076-237-3910<br>
+                        <strong>交通：</strong>從酒店駕車約10分鐘<br>
+                        出發前享用美味的一餐</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">12:30</div>
+                    <div class="timeline-content">
+                        <h4>⛩️ 願掛け寺　香林寺</h4>
+                        <p>祈願寺廟，以地藏菩薩聞名</p>
+                        <p>推薦：願掛けなで仏、幸福の道</p>
+                        <p class="note"><strong>地址：</strong><a href="https://maps.app.goo.gl/Fsh7ng8BjNTMFgke8" target="_blank" style="color: var(--accent-blue); text-decoration: underline;">〒921-8031 石川県金沢市野町1-3-15</a><br>
+                        <strong>電話：</strong>076-241-3905<br>
+                        <strong>交通：</strong>從喜久や駕車約15分鐘<br>
+                        參拜祈求旅途平安</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">14:00</div>
+                    <div class="timeline-content">
+                        <h4>🚗 出發前往伊勢</h4>
+                        <p>車程約4.5-5小時</p>
+                        <p class="note"><strong>目的地：</strong>山小舎 (Yamakoma)<br>
+                        <strong>地址：</strong><a href="https://maps.app.goo.gl/qquZATfjZ9jGa4iUA" target="_blank" style="color: var(--accent-blue); text-decoration: underline;">〒519-2165 三重県多気郡多気町田中94番地</a><br>
+                        <strong>電話：</strong>0598-39-8836<br>
+                        <strong>駕車時間：</strong>從香林寺出發，約4.5-5小時<br>
+                        建議在刈谷PA或多賀SA休息</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">19:00</div>
+                    <div class="timeline-content">
+                        <h4>🏨 抵達伊勢，Check-in</h4>
+                        <p>山小舎 (Yamakoma)</p>
+                        <p class="note">放下行李，準備晚餐</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">20:00</div>
+                    <div class="timeline-content">
+                        <h4>🍶 向井酒の店（已預約）</h4>
+                        <p>伊勢當地居酒屋</p>
+                        <p>推薦：地酒、當地海鮮、伊勢烏龍</p>
+                        <p class="note"><strong>地址：</strong><a href="https://maps.app.goo.gl/YivBjT4kAZtQjWuL9" target="_blank" style="color: var(--accent-blue); text-decoration: underline;">〒516-0009 三重県伊勢市河崎2-25-32</a><br>
+                        <strong>電話：</strong>0596-28-0034<br>
+                        <strong>交通：</strong>從山小舎駕車約20分鐘<br>
+                        已預約，記得準時到達</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accommodation">
+                <h5>🏨 住宿</h5>
+                <p><strong>山小舎 (Yamakoma)</strong></p>
+                <p>民泊やまこま MINPAKU YAMAKOMA<br><a href="https://maps.app.goo.gl/qquZATfjZ9jGa4iUA" target="_blank" style="color: var(--accent-blue); text-decoration: underline;">〒519-2165 三重県多気郡多気町田中94番地</a></p>
+            </div>
+        </div>
+
+        <!-- Day 6 -->
+        <div class="page" id="day6">
+            <div class="day-page-header">
+                <div class="day-number-large" data-weekday="（三）">12/4</div>
+                <div class="day-location">伊勢・鳥羽</div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-card">
+                    <h4>🌤️ 天氣預報</h4>
+                    <p><strong>氣溫：</strong>10°C - 17°C</p>
+                    <p><strong>天氣：</strong>晴天，適合戶外活動</p>
+                    <p><strong>穿著建議：</strong>輕便舒適，早上較涼建議薄外套</p>
+                </div>
+
+                <div class="info-card">
+                    <h4>💡 旅行貼士</h4>
+                    <ul>
+                        <li>生蠔放題建議早點去（9:00開門），避開人潮</li>
+                        <li>80分鐘吃到飽，記得不要吃太撐影響下午   程</li>
+                        <li>鳥羽水族館可玩2-3小時，建議購買優惠套票</li>
+                        <li>12月是伊勢龍蝦最肥美的季節！</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4>🚗 交通攻略</h4>
+                    <p><strong>移動方式：</strong>自駕</p>
+                    <p><strong>伊勢→鳥羽：</strong>自駕約20分鐘</p>
+                    <p><strong>停車：</strong>スギムラ水產有免費停車場，鳥羽水族館￥500</p>
+                    <p><strong>替代方案：</strong>近鐵電車約10分鐘，￥250</p>
+                </div>
+            </div>
+
+            <div class="itinerary-section">
+                <h3>📍 今日行程</h3>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">09:00</div>
+                    <div class="timeline-content">
+                        <h4>🚗 從山小舎出發</h4>
+                        <p>前往スギムラ水產</p>
+                        <p class="note"><strong>目的地：</strong>スギムラ水產<br>
+                        <strong>地址：</strong><a href="https://maps.app.goo.gl/NyT7X1GW1uohDaTv8" target="_blank" style="color: var(--accent-blue); text-decoration: underline;">〒517-0025 三重県鳥羽市浦村町1414-15</a><br>
+                        <strong>電話：</strong>0599-32-5808<br>
+                        <strong>駕車時間：</strong>從山小舎出發，約30-40分鐘</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">10:00</div>
+                    <div class="timeline-content">
+                        <h4>🦪 スギムラ水產</h4>
+                        <p>焼がき+蒸しがき食べ放題セット（80分）</p>
+                        <p>生蠔放題！烤生蠔和蒸生蠔吃到飽</p>
+                        <p class="note">超新鮮的浦村牡蠣，蠔控必去！約￥2,500/人</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">11:30</div>
+                    <div class="timeline-content">
+                        <h4>🚗 前往鳥羽水族館</h4>
+                        <p class="note"><strong>目的地：</strong>鳥羽水族館<br>
+                        <strong>地址：</strong><a href="https://maps.app.goo.gl/CkKZqQ4Q41cRdvcUA" target="_blank" style="color: var(--accent-blue); text-decoration: underline;">〒517-8517 三重県鳥羽市鳥羽3-3-6</a><br>
+                        <strong>電話：</strong>0599-25-2555<br>
+                        <strong>駕車時間：</strong>從スギムラ水產出發，約15分鐘</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">12:00</div>
+                    <div class="timeline-content">
+                        <h4>🐠 鳥羽水族館</h4>
+                        <p>日本最大級的水族館之一</p>
+                        <p>必看：美人魚（儒艮）、企鵝、水獺、海獅表演</p>
+                        <p class="note">門票：￥2,500，遊覽至17:00</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">17:30</div>
+                    <div class="timeline-content">
+                        <h4>🦞 伊勢海老 海鮮蒸し料理 華月</h4>
+                        <p>伊勢龍蝦料理專門店</p>
+                        <p>推薦：伊勢海老刺身、伊勢海老蒸し、伊勢海老味噌湯</p>
+                        <p class="note"><strong>地址：</strong><a href="https://maps.app.goo.gl/uAiP3xJh7P4rnCaR9" target="_blank" style="color: var(--accent-blue); text-decoration: underline;">〒517-0011 三重県鳥羽市鳥羽1-6-21</a><br>
+                        <strong>電話：</strong>0599-26-2532<br>
+                        <strong>交通：</strong>從鳥羽水族館駕車約5分鐘<br>
+                        12月是伊勢龍蝦的季節，肉質最肥美！預算￥8,000-12,000/人</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accommodation">
+                <h5>🏨 住宿</h5>
+                <p><strong>山小舎 (Yamakoma)</strong></p>
+            </div>
+        </div>
+
+        <!-- Day 7 -->
+        <div class="page" id="day7">
+            <div class="day-page-header">
+                <div class="day-number-large" data-weekday="（四）">12/5</div>
+                <div class="day-location">伊勢 → 大阪</div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-card">
+                    <h4>🌤️ 天氣預報</h4>
+                    <p><strong>伊勢：</strong>11°C - 18°C，晴天</p>
+                    <p><strong>大阪：</strong>10°C - 16°C，多雲</p>
+                    <p><strong>穿著建議：</strong>舒適的步行鞋（伊勢神宮需步行），薄外套</p>
+                </div>
+
+                <div class="info-card">
+                    <h4>💡 旅行貼士</h4>
+                    <ul>
+                        <li>伊勢神宮參拜順序：外宮→內宮（傳統參拜方式）</li>
+                        <li>內宮正殿不可拍照，其他區域可以</li>
+                        <li>おかげ横丁試吃很多，可以當早餐+午餐</li>
+                        <li>還車前記得加滿油，在附近加油站</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4>🚗 交通攻略</h4>
+                    <p><strong>移動方式：</strong>自駕</p>
+                    <p><strong>伊勢神宮：</strong>有免費停車場（內宮、外宮）</p>
+                    <p><strong>伊勢→大阪：</strong>伊勢自動車道→近畿道，約2.5小時</p>
+                    <p><strong>過路費：</strong>約￥4,500</p>
+                    <p><strong>還車地點：</strong>Nippon Rent-A-Car Nankai Namba Station South Exit</p>
+                </div>
+            </div>
+
+            <div class="itinerary-section">
+                <h3>📍 今日行程</h3>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">10:00</div>
+                    <div class="timeline-content">
+                        <h4>🍜 おかげ横丁美食巡禮</h4>
+                        <p>伊勢神宮前的傳統商店街，慢慢逛、慢慢吃，享用各式小吃：</p>
+                        <p>・横丁そば 小西湖（蕎麥麵）<br>
+                        ・伊勢醤油本舗 本店（醬油烏龍）<br>
+                        ・牛若丸（伊勢牛串）<br>
+                        ・木下茶園 内宮前店（抹茶甜品）<br>
+                        ・白鷹三宅商店（地酒試飲）<br>
+                        ・ふくすけ / 伊勢うどん 山口屋（伊勢烏龍）</p>
+                        <p class="note"><strong>地址：</strong><a href="https://maps.app.goo.gl/gJhqMSL8Zy7bjo3i9" target="_blank" style="color: var(--accent-blue); text-decoration: underline;">〒516-0025 三重県伊勢市宇治中之切町52</a><br>
+                        <strong>電話：</strong>0596-23-8838（おかげ横丁總合案內）<br>
+                        <strong>交通：</strong>從山小舎駕車約25分鐘<br>
+                        <strong>預留時間：</strong>1.5-2小時，慢慢體驗伊勢美食文化</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">12:00</div>
+                    <div class="timeline-content">
+                        <h4>⛩️ 伊勢神宮（重要景點，充分遊覽）</h4>
+                        <p>日本最神聖的神社，建議預留3.5小時深度體驗</p>
+                        <p>建議順序：外宮（豐受大神宮）→ 內宮（皇大神宮）</p>
+                        <p class="note"><strong>內宮地址：</strong><a href="https://maps.app.goo.gl/Uz5zZ2C5wSbjdDXF9" target="_blank" style="color: var(--accent-blue); text-decoration: underline;">〒516-0023 三重県伊勢市宇治館町1</a><br>
+                        <strong>外宮地址：</strong><a href="https://maps.app.goo.gl/Uz5zZ2C5wSbjdDXF9" target="_blank" style="color: var(--accent-blue); text-decoration: underline;">〒516-0042 三重県伊勢市豊川町279</a><br>
+                        <strong>電話：</strong>0596-24-1111<br>
+                        <strong>交通：</strong>おかげ横丁就在內宮旁邊，步行即可<br>
+                        <strong>遊覽時間：</strong>建議預留3-3.5小時（外宮1小時 + 內宮2-2.5小時）<br>
+                        參拜禮儀：二禮二拍手一禮。內宮的正殿不能拍照<br>
+                        <strong>重點：</strong>這是日本最重要的神社，值得慢慢參拜，感受神聖氛圍</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">15:30</div>
+                    <div class="timeline-content">
+                        <h4>🚗 駕車前往大阪</h4>
+                        <p>車程約2.5-3小時（經伊勢自動車道、近畿自動車道）</p>
+                        <p class="note"><strong>目的地：</strong>太INN-弍*天下茶屋<br>
+                        <strong>地址：</strong><a href="https://maps.app.goo.gl/4Z5L916LrBFomedw6" target="_blank" style="color: var(--accent-blue); text-decoration: underline;">〒557-0014 大阪府大阪市西成区天下茶屋2-11-4</a><br>
+                        <strong>駕車時間：</strong>從伊勢神宮出發，約2.5-3小時<br>
+                        過路費約¥4,500</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">19:00</div>
+                    <div class="timeline-content">
+                        <h4>🏨 大阪住宿 Check-in，放行李</h4>
+                        <p>太INN-弍*天下茶屋</p>
+                        <p class="note">地址：<a href="https://maps.app.goo.gl/4Z5L916LrBFomedw6" target="_blank" style="color: var(--accent-blue); text-decoration: underline;">〒557-0014 大阪府大阪市西成区天下茶屋2-11-4</a></p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">20:00</div>
+                    <div class="timeline-content">
+                        <h4>🚗 Nippon Rent-A-Car Nankai Namba Station South Exit</h4>
+                        <p>還車（記得加滿油）</p>
+                        <p class="note"><strong>地址：</strong><a href="https://maps.app.goo.gl/3czoRV1SySGgEHNb6" target="_blank" style="color: var(--accent-blue); text-decoration: underline;">〒542-0076 大阪府大阪市中央区難波5-1-60</a><br>
+                        <strong>電話：</strong>06-6633-0919<br>
+                        <strong>交通：</strong>從住宿駕車約15分鐘<br>
+                        就在難波站附近，還車後可搭地鐵</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">21:00</div>
+                    <div class="timeline-content">
+                        <h4>🍢 吾一 堂山店（已預約）</h4>
+                        <p>大阪燒鳥（烤雞肉串）名店</p>
+                        <p>推薦：各式串燒、雞皮、雞心、親子丼</p>
+                        <p class="note"><strong>地址：</strong><a href="https://maps.app.goo.gl/Mq6tED5fjuVDw57U9" target="_blank" style="color: var(--accent-blue); text-decoration: underline;">〒530-0027 大阪府大阪市北区堂山町15-3</a><br>
+                        <strong>電話：</strong>06-6312-8739<br>
+                        <strong>交通：</strong>從難波站搭地鐵至梅田站，步行約10分鐘（總時程約20分鐘）<br>
+                        已預約21:00，記得準時到達</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accommodation">
+                <h5>🏨 住宿</h5>
+                <p><strong>太INN-弍*天下茶屋</strong></p>
+                <p>2-chōme-11-4 Tengachaya, Osaka, Osaka 557-0014</p>
+            </div>
+        </div>
+
+        <!-- Day 8 -->
+        <div class="page" id="day8">
+            <div class="day-page-header">
+                <div class="day-number-large" data-weekday="（五）">12/6</div>
+                <div class="day-location">大阪</div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-card">
+                    <h4>🌤️ 天氣預報</h4>
+                    <p><strong>氣溫：</strong>9°C - 15°C</p>
+                    <p><strong>天氣：</strong>多雲時晴</p>
+                    <p><strong>穿著建議：</strong>洋蔥式穿搭，演唱會場館內會較熱</p>
+                </div>
+
+                <div class="info-card">
+                    <h4>💡 旅行貼士</h4>
+                    <ul>
+                        <li>京セラドーム建議17:00前抵達避開人潮</li>
+                        <li>應援物品記得帶好！</li>
+                        <li>演唱會後難波、梅田都有深夜食堂</li>
+                        <li>大阪地鐵營運至24:00，規劃好回程路線</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4>🚇 交通攻略</h4>
+                    <p><strong>到京セラドーム：</strong>地鐵中央線「九条」站，步行8分鐘</p>
+                    <p><strong>或：</strong>阪神なんば線「ドーム前千代崎」站，步行5分鐘</p>
+                    <p><strong>回程：</strong>演唱會後地鐵會很擠，可考慮步行至野田站</p>
+                    <p><strong>建議：</strong>購買大阪周遊卡或地鐵一日券</p>
+                </div>
+            </div>
+
+            <div class="itinerary-section">
+                <h3>📍 今日行程</h3>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">自由</div>
+                    <div class="timeline-content">
+                        <h4>☀️ 上午自由活動</h4>
+                        <p>睡到自然醒，或者可以：</p>
+                        <p>・逛道頓堀、心齋橋（購物）<br>
+                        ・大阪城公園（賞景）<br>
+                        ・黑門市場（海鮮早午餐）<br>
+                        ・阿倍野 Harukas（展望台）</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">13:00</div>
+                    <div class="timeline-content">
+                        <h4>🍢 おでん まる米</h4>
+                        <p>大阪關東煮（おでん）專門店</p>
+                        <p>推薦：招牌關東煮、季節食材、牛筋</p>
+                        <p class="note"><strong>地址：</strong><a href="https://maps.app.goo.gl/TBRkNudUyEfY1dgo7" target="_blank" style="color: var(--accent-blue); text-decoration: underline;">〒542-0086 大阪府大阪市中央区西心斎橋2-7-27</a><br>
+                        <strong>電話：</strong>06-6213-8818<br>
+                        <strong>交通：</strong>從住宿搭地鐵至心齋橋站，步行約8分鐘（總時程   20分鐘）</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">15:00</div>
+                    <div class="timeline-content">
+                        <h4>☕ 咖啡廳休息</h4>
+                        <p>為晚上的演唱會養精蓄銳</p>
+                        <p class="note">推薦：阿拉比卡咖啡、% Arabica、藍瓶咖啡<br>
+                        <strong>% Arabica 心齋橋：</strong><a href="https://maps.app.goo.gl/HMaACt9jmC9Gq9ov8" target="_blank" style="color: var(--accent-blue); text-decoration: underline;">〒542-0086 大阪府大阪市中央区西心斎橋1-6-35</a><br>
+                        <strong>交通：</strong>就在おでん まる米附近，步行5分鐘</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">17:00</div>
+                    <div class="timeline-content">
+                        <h4>🚇 前往京セラドーム大阪</h4>
+                        <p class="note"><strong>交通：</strong>從心齋橋搭地鐵中央線至九条站，步行8分鐘（總時程約20分鐘）<br>
+                        或搭阪神なんば線至ドーム前千代崎站，步行5分鐘<br>
+                        <strong>建議：</strong>提早出發避開入場人潮</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">18:00</div>
+                    <div class="timeline-content">
+                        <h4>🎤 SEVENTEEN WORLD TOUR [NEW_] IN JAPAN</h4>
+                        <p>京セラドーム大阪 (KYOCERA DOME OSAKA)</p>
+                        <p class="note"><strong>地址：</strong><a href="https://maps.app.goo.gl/Xs1ucvd7ZPQSxdrB6" target="_blank" style="color: var(--accent-blue); text-decoration: underline;">〒550-0023 大阪府大阪市西区千代崎3-2-1</a><br>
+                        <strong>電話：</strong>06-6586-0106<br>
+                        演唱會時間：18:00-21:30，記得提早入場！</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">22:00</div>
+                    <div class="timeline-content">
+                        <h4>🍜 晚餐（推薦）</h4>
+                        <p><strong>難波地區：</strong></p>
+                        <p>・一蘭拉麵（24h）- 〒542-0076 大阪市中央区難波3-4-11<br>
+                        ・金龍拉麵（24h）- 〒542-0076 大阪市中央区難波1-7-26<br>
+                        ・大阪王將（至23:30）- 〒542-0076 大阪市中央区難波3-2-28<br>
+                        ・串炸だるま（至23:00）- 〒542-0071 大阪市中央区道頓堀1-6-4<br>
+                        ・千房お好み燒（至23:00）- 〒542-0071 大阪市中央区道頓堀1-5-5</p>
+                        <p><strong>梅田地區：</strong></p>
+                        <p>・一風堂拉麵（至24:00）- 梅田 NU chayamachi B1F<br>
+                        ・阪急三番街（至23:00）- 各式餐廳<br>
+                        ・大起水產迴轉壽司（至23:00）- Grand Front Osaka B1F</p>
+                        <p class="note">演唱會後會很餓，這些店都營業到深夜！建議根據回程路線選擇</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accommodation">
+                <h5>🏨 住宿</h5>
+                <p><strong>太INN-弍*天下茶屋</strong></p>
+                <p>2-chōme-11-4 Tengachaya, Osaka, Osaka 557-0014</p>
+            </div>
+        </div>
+
+        <!-- Day 9 -->
+        <div class="page" id="day9">
+            <div class="day-page-header">
+                <div class="day-number-large" data-weekday="（六）">12/7</div>
+                <div class="day-location">大阪 → 香港</div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-card">
+                    <h4>🌤️ 天氣預報</h4>
+                    <p><strong>氣溫：</strong>10°C - 16°C</p>
+                    <p><strong>天氣：</strong>晴天</p>
+                    <p><strong>穿著建議：</strong>舒適輕便，方便逛街和移動</p>
+                </div>
+
+                <div class="info-card">
+                    <h4>💡 旅行貼士</h4>
+                    <ul>
+                        <li>LUCUA有很多伴手禮店，記得預留時間採購</li>
+                        <li>City Terminal環亞貴賓室可免費寄放行李（信用卡優惠）</li>
+                        <li>機場建議提前2.5-3小時抵達（退稅+安檢）</li>
+                        <li>關西機場免稅店很大，可提早去逛</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4>🚇 交通攻略</h4>
+                    <p><strong>梅田→關西機場：</strong></p>
+                    <p>• 南海電鐵特急 Rapi:t（推薦）：約45分鐘，￥1,450</p>
+                    <p>• JR Haruka：約50分鐘，￥2,850</p>
+                    <p>• 利木津巴士：約60分鐘，￥1,600</p>
+                    <p><strong>建議：</strong>17:30從梅田出發</p>
+                </div>
+            </div>
+
+            <div class="itinerary-section">
+                <h3>📍 今日行程</h3>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">10:00</div>
+                    <div class="timeline-content">
+                        <h4>☀️ 起床，整理行李</h4>
+                        <p>Check-out</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">12:00</div>
+                    <div class="timeline-content">
+                        <h4>🥩 牛たんの檸檬 大阪本店</h4>
+                        <p>仙台牛舌專門店</p>
+                        <p>推薦：厚切牛舌定食、牛舌丼、牛尾湯</p>
+                        <p class="note"><strong>地址：</strong><a href="https://maps.app.goo.gl/WGrQEUfWWhuaDMcK8" target="_blank" style="color: var(--accent-blue); text-decoration: underline;">〒530-0012 大阪府大阪市北区芝田1-1-3 阪急三番街 南館 B2F</a><br>
+                        <strong>電話：</strong>06-6292-3910<br>
+                        <strong>交通：</strong>從住宿搭地鐵至梅田站，步行5分鐘（總時程約20分鐘）</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">14:00</div>
+                    <div class="timeline-content">
+                        <h4>🛍️ ルクア大阪店 + 行李寄放</h4>
+                        <p>LUCUA 大阪站購物中心</p>
+                        <p><strong>行李寄放：</strong>梅田阪急百貨1樓 City Terminal環亞貴賓室</p>
+                        <p><strong>推薦店鋪：</strong></p>
+                        <p>・MUCHA（B1F）- 慕夏香水專門店（<a href="https://alphonsemucha.jp/Form/Product/ProductList.aspx?cat=FRC" target="_blank" style="color: var(--accent-blue);">官網</a>）<br>
+                        ・無印良品（6F）- 生活雜貨、文具<br>
+                        ・PLAZA（8F）- 藥妝、零食、美妝<br>
+                        ・神戶風月堂（B2F）- 傳統和菓子<br>
+                        ・りくろーおじさんの店（B2F）- 芝士蛋糕伴手禮<br>
+                        ・551蓬萊（B2F）- 大阪名物豬肉包<br>
+                        ・LOFT（9-10F）- 文具、生活雜貨、手信</p>
+                        <p class="note"><strong>LUCUA地址：</strong><a href="https://maps.app.goo.gl/PqBjUrFqA4Yf9TVT8" target="_blank" style="color: var(--accent-blue); text-decoration: underline;">〒530-8558 大阪府大阪市北区梅田3-1-3</a><br>
+                        <strong>電話：</strong>06-6151-1111<br>
+                        <strong>交通：</strong>就在梅田站旁，步行即可<br>
+                        最後採購、伴手禮時間！記得預留時間前往機場</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">17:30</div>
+                    <div class="timeline-content">
+                        <h4>🚄 前往關西國際機場</h4>
+                        <p>建議搭乘南海電鐵特急 Rapi:t（約45分鐘）</p>
+                        <p class="note"><strong>交通：</strong>從梅田站搭地鐵御堂筋線至難波站（10分鐘）→ 難波站搭南海電鐵特急 Rapi:t（45分鐘）<br>
+                        <strong>費用：</strong>地鐵￥280 + 南海電鐵￥1,450 = ￥1,730/人</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">19:00</div>
+                    <div class="timeline-content">
+                        <h4>🛫 關西國際機場</h4>
+                        <p>辦理登機、退稅、安檢</p>
+                        <p class="note">機場免稅店可以逛逛，買最後的伴手禮</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">21:05</div>
+                    <div class="timeline-content">
+                        <h4>✈️ 關西國際機場 → 香港國際機場</h4>
+                        <p>結束美好的日本之旅！</p>
+                        <p class="note">期待下次再訪 🌸</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
-        document.getElementById('loveButton').addEventListener('click', function() {
-            this.classList.add('button-love');
+        // Dark mode detection
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
         });
 
-        function relocateButton(button) {
-            const x = Math.random() * (window.innerWidth - button.offsetWidth);
-            const y = Math.random() * (window.innerHeight - button.offsetHeight);
-            button.style.position = 'absolute';
-            button.style.left = `${x}px`;
-            button.style.top = `${y}px`;
+        // Navigation
+        const tabs = document.querySelectorAll('.nav-tab');
+        const pages = document.querySelectorAll('.page');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const targetPage = tab.dataset.page;
+
+                tabs.forEach(t => t.classList.remove('active'));
+                pages.forEach(p => p.classList.remove('active'));
+
+                tab.classList.add('active');
+                document.getElementById(targetPage).classList.add('active');
+
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+
+        // Time Adjustment Feature
+        const timeStorage = {}; // Store original times
+
+        // Parse time string to minutes
+        function timeToMinutes(timeStr) {
+            if (timeStr === '自由') return null;
+            const [hours, minutes] = timeStr.split(':').map(Number);
+            return hours * 60 + minutes;
         }
 
-        const noButton = document.getElementById('noButton');
-        noButton.addEventListener('mouseover', () => relocateButton(noButton));
-        noButton.addEventListener('click', () => relocateButton(noButton));
-        noButton.addEventListener('touchstart', () => relocateButton(noButton));
-        
-        const sylusButton = document.getElementById('sylusButton');
-        sylusButton.addEventListener('click', function() {
-            window.location.href = 'Sylus.html';
-        });
+        // Convert minutes back to time string
+        function minutesToTime(minutes) {
+            const hours = Math.floor(minutes / 60) % 24;
+            const mins = minutes % 60;
+            return `${String(hours).padStart(2, '0')}:${String(mins).padStart(2, '0')}`;
+        }
 
+        // Initialize time storage and add click handlers
+        function initializeTimeAdjustment() {
+            document.querySelectorAll('.page').forEach(page => {
+                const pageId = page.id;
+                const timeElements = page.querySelectorAll('.timeline-time');
+
+                timeElements.forEach((timeEl, index) => {
+                    const originalTime = timeEl.textContent.trim();
+                    const storageKey = `${pageId}-${index}`;
+
+                    // Store original time
+                    if (!timeStorage[storageKey]) {
+                        timeStorage[storageKey] = originalTime;
+                    }
+
+                    // Skip "自由" times
+                    if (originalTime === '自由') return;
+
+                    // Add click handler
+                    timeEl.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        showTimeAdjuster(timeEl, pageId, index, timeElements);
+                    });
+                });
+            });
+        }
+
+        // Show time adjustment dialog
+        function showTimeAdjuster(timeEl, pageId, index, allTimes) {
+            const currentTime = timeEl.textContent.trim();
+
+            // Create overlay
+            const overlay = document.createElement('div');
+            overlay.className = 'time-adjuster-overlay';
+
+            // Create adjuster dialog
+            const adjuster = document.createElement('div');
+            adjuster.className = 'time-adjuster';
+            adjuster.innerHTML = `
+                <h3>⏰ 調整時間</h3>
+                <label>延遲分鐘數（輸入負數可提前）：</label>
+                <input type="number" id="delay-input" value="0" min="-999" max="999" step="15" placeholder="例如：30（延遲30分鐘）">
+                <div class="time-adjuster-buttons">
+                    <button class="btn-cancel">取消</button>
+                    <button class="btn-reset">重置為原時間</button>
+                    <button class="btn-apply">套用</button>
+                </div>
+            `;
+
+            document.body.appendChild(overlay);
+            document.body.appendChild(adjuster);
+
+            const input = document.getElementById('delay-input');
+            input.focus();
+            input.select();
+
+            // Cancel button
+            adjuster.querySelector('.btn-cancel').addEventListener('click', () => {
+                document.body.removeChild(overlay);
+                document.body.removeChild(adjuster);
+            });
+
+            // Overlay click to close
+            overlay.addEventListener('click', () => {
+                document.body.removeChild(overlay);
+                document.body.removeChild(adjuster);
+            });
+
+            // Reset button
+            adjuster.querySelector('.btn-reset').addEventListener('click', () => {
+                resetTimesFromIndex(pageId, index, allTimes);
+                document.body.removeChild(overlay);
+                document.body.removeChild(adjuster);
+            });
+
+            // Apply button
+            adjuster.querySelector('.btn-apply').addEventListener('click', () => {
+                const delay = parseInt(input.value) || 0;
+                if (delay !== 0) {
+                    adjustTimesFromIndex(pageId, index, delay, allTimes);
+                }
+                document.body.removeChild(overlay);
+                document.body.removeChild(adjuster);
+            });
+
+            // Enter key to apply
+            input.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    const delay = parseInt(input.value) || 0;
+                    if (delay !== 0) {
+                        adjustTimesFromIndex(pageId, index, delay, allTimes);
+                    }
+                    document.body.removeChild(overlay);
+                    document.body.removeChild(adjuster);
+                }
+            });
+        }
+
+        // Adjust times from a specific index onwards
+        function adjustTimesFromIndex(pageId, startIndex, delayMinutes, allTimes) {
+            for (let i = startIndex; i < allTimes.length; i++) {
+                const timeEl = allTimes[i];
+                const storageKey = `${pageId}-${i}`;
+                const originalTime = timeStorage[storageKey];
+
+                if (originalTime === '自由') continue;
+
+                const originalMinutes = timeToMinutes(originalTime);
+                const newMinutes = originalMinutes + delayMinutes;
+                const newTime = minutesToTime(newMinutes);
+
+                timeEl.textContent = newTime;
+                timeEl.classList.add('adjusted');
+            }
+        }
+
+        // Reset times from a specific index onwards
+        function resetTimesFromIndex(pageId, startIndex, allTimes) {
+            for (let i = startIndex; i < allTimes.length; i++) {
+                const timeEl = allTimes[i];
+                const storageKey = `${pageId}-${i}`;
+                const originalTime = timeStorage[storageKey];
+
+                timeEl.textContent = originalTime;
+                timeEl.classList.remove('adjusted');
+            }
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', initializeTimeAdjustment);
     </script>
 </body>
 </html>
