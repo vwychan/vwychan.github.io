@@ -11,15 +11,15 @@ body {
     min-height: 100vh;
     padding: 2rem 1rem;
     transition: all 0.3s ease;
-    /* Fixed background for the entire page */
+    /* Fixed background for the entire page - showing full image */
     background-color: var(--paper-light); /* Fallback color */
     background-image: url('/img/Nagosaka_bg.jpeg');
-    background-size: cover;
+    background-size: contain; /* Shows full image fitting within screen */
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     /* Fallback for iOS Safari which doesn't support fixed backgrounds well */
-    -webkit-background-size: cover;
+    -webkit-background-size: contain; /* Match the background-size value */
     position: relative;
     /* Prevent background from scrolling on mobile */
     -webkit-overflow-scrolling: touch;
@@ -33,15 +33,22 @@ body::before {
     left: 0;
     right: 0;
     bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    height: -webkit-fill-available; /* iOS Safari fix */
     background: 
         linear-gradient(to bottom,
-            rgba(250, 248, 243, 0.3) 0%,
-            rgba(250, 248, 243, 0.25) 50%,
-            rgba(250, 248, 243, 0.3) 100%),
+            var(--bg-overlay) 0%,
+            var(--bg-overlay-mid) 50%,
+            var(--bg-overlay) 100%),
         repeating-linear-gradient(0deg, transparent, transparent 19px, rgba(193, 39, 45, 0.03) 19px, rgba(193, 39, 45, 0.03) 20px),
         repeating-linear-gradient(90deg, transparent, transparent 19px, rgba(61, 90, 128, 0.03) 19px, rgba(61, 90, 128, 0.03) 20px);
     pointer-events: none;
-    z-index: 0;
+    z-index: -1; /* Above background image, below content */
+    /* Ensure it stays fixed */
+    will-change: transform;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
 .booklet {
@@ -49,8 +56,8 @@ body::before {
     margin: 0 auto;
     position: relative;
     z-index: 1;
-    background: rgba(250, 248, 243, 0.85);
-    backdrop-filter: blur(2px);
+    background: var(--bg-booklet);
+    backdrop-filter: blur(var(--blur-booklet));
     box-shadow:
         0 2px 8px rgba(193, 39, 45, 0.1),
         0 4px 16px rgba(61, 90, 128, 0.08),

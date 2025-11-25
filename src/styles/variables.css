@@ -1,4 +1,5 @@
 :root {
+    /* Colors */
     --paper-light: #faf8f3;
     --paper-cream: #f5f1e8;
     --ink-dark: #2b2520;
@@ -7,7 +8,33 @@
     --accent-red: #c1272d;
     --accent-gold: #d4a574;
     --accent-blue: #3d5a80;
+    
+    /* Background Opacity Values (Consolidated) */
+    --bg-opacity-booklet: 0.85;
+    --bg-opacity-booklet-mobile: 0.9;
+    --bg-opacity-overlay: 0.3;
+    --bg-opacity-overlay-mid: 0.25;
+    --bg-opacity-card: 0.98;
+    --bg-opacity-cover-title: 0.9;
+    --bg-opacity-cover-date: 0.98;
+    
+    /* Background RGBA Values (Using paper-light color) */
+    --bg-booklet: rgba(250, 248, 243, var(--bg-opacity-booklet));
+    --bg-booklet-mobile: rgba(250, 248, 243, var(--bg-opacity-booklet-mobile));
+    --bg-overlay: rgba(250, 248, 243, var(--bg-opacity-overlay));
+    --bg-overlay-mid: rgba(250, 248, 243, var(--bg-opacity-overlay-mid));
+    --bg-card: rgba(255, 255, 255, var(--bg-opacity-card));
+    --bg-cover-title: rgba(255, 255, 255, var(--bg-opacity-cover-title));
+    --bg-cover-date: rgba(255, 255, 255, var(--bg-opacity-cover-date));
+    
+    /* Shadows */
     --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.08);
     --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.12);
+    
+    /* Backdrop Blur */
+    --blur-booklet: 2px;
+    --blur-booklet-mobile: 3px;
+    --blur-cover-title: 8px;
+    --blur-cover-date: 10px;
 }
 

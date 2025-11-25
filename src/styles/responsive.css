@@ -7,11 +7,9 @@
 
     body {
         padding: 0;
-        /* iOS Safari workaround for fixed background */
+        /* Remove background from body on mobile - use ::after instead */
+        background-image: none;
         background-attachment: scroll;
-        /* Ensure background covers full viewport on mobile */
-        background-size: cover;
-        background-position: center center;
         min-height: 100vh;
         min-height: -webkit-fill-available; /* iOS Safari fix */
         /* Prevent text size adjustment on orientation change */
@@ -19,31 +17,48 @@
         text-size-adjust: 100%;
     }
 
-    /* Alternative fixed background for iOS using pseudo-element */
+    /* Fixed background for mobile - shows full image, doesn't scroll */
     body::after {
         content: '';
         position: fixed;
         top: 0;
         left: 0;
-        width: 100%;
-        height: 100%;
+        width: 100vw;
+        height: 100vh;
+        height: -webkit-fill-available; /* iOS Safari fix */
         background-image: url('/img/Nagosaka_bg.jpeg');
-        background-size: cover;
+        background-size: contain; /* Shows full image fitting within screen */
         background-position: center center;
         background-repeat: no-repeat;
-        z-index: -1;
-        /* iOS Safari specific */
+        background-color: var(--paper-light); /* Fallback color for empty spaces */
+        z-index: -2; /* Behind overlay */
+        /* iOS Safari specific - ensures fixed positioning works */
         -webkit-transform: translateZ(0);
         transform: translateZ(0);
+        /* Prevent scrolling */
+        will-change: transform;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        /* Ensure it covers the full viewport */
+        min-height: 100vh;
+        min-height: -webkit-fill-available;
+    }
+
+    /* Ensure overlay also covers full viewport on mobile */
+    body::before {
+        height: 100vh;
+        height: -webkit-fill-available;
+        min-height: 100vh;
+        min-height: -webkit-fill-available;
     }
 
     .booklet {
         border-radius: 0;
         border: none;
-        background: rgba(250, 248, 243, 0.9);
+        background: var(--bg-booklet-mobile);
         /* Better backdrop for mobile readability */
-        backdrop-filter: blur(3px);
-        -webkit-backdrop-filter: blur(3px);
+        backdrop-filter: blur(var(--blur-booklet-mobile));
+        -webkit-backdrop-filter: blur(var(--blur-booklet-mobile));
     }
 
     .cover {
