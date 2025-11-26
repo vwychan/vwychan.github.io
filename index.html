@@ -6,11 +6,11 @@
     <title>日本中部之旅 | 旅行小冊子</title>
     
     <!-- App Icons -->
-    <link rel="icon" type="image/png" href="Nagosaka.PNG">
-    <link rel="apple-touch-icon" href="Nagosaka.PNG">
-    <link rel="apple-touch-icon" sizes="152x152" href="Nagosaka.PNG">
-    <link rel="apple-touch-icon" sizes="180x180" href="Nagosaka.PNG">
-    <link rel="apple-touch-icon" sizes="167x167" href="Nagosaka.PNG">
+    <link rel="icon" type="image/png" href="/img/Nagosaka.PNG">
+    <link rel="apple-touch-icon" href="/img/Nagosaka.PNG">
+    <link rel="apple-touch-icon" sizes="152x152" href="/img/Nagosaka.PNG">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/Nagosaka.PNG">
+    <link rel="apple-touch-icon" sizes="167x167" href="/img/Nagosaka.PNG">
     
     <!-- Web App Settings -->
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -50,6 +50,18 @@
             min-height: 100vh;
             padding: 2rem 1rem;
             transition: all 0.3s ease;
+            position: relative;
+        }
+
+        /* Fixed Background */
+        .fixed-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('/img/Nagosaka_bg.PNG') center center / cover no-repeat;
+            z-index: -1;
         }
 
 
@@ -63,9 +75,7 @@
                     rgba(255, 255, 255, 0.2) 80%,
                     rgba(255, 255, 255, 0.2) 100%),
                 repeating-linear-gradient(0deg, transparent, transparent 19px, rgba(193, 39, 45, 0.05) 19px, rgba(193, 39, 45, 0.05) 20px),
-                repeating-linear-gradient(90deg, transparent, transparent 19px, rgba(61, 90, 128, 0.05) 19px, rgba(61, 90, 128, 0.05) 20px),
-                url('https://pfst.cf2.poecdn.net/base/image/873dc775463038f2ef342a7be6a47d8b2ef00f6871605ed22916feb274c2ae1b?w=768&h=1376') center center / cover no-repeat;
-                background-attachment: fixed;
+                repeating-linear-gradient(90deg, transparent, transparent 19px, rgba(61, 90, 128, 0.05) 19px, rgba(61, 90, 128, 0.05) 20px);
             box-shadow:
                 0 2px 8px rgba(193, 39, 45, 0.1),
                 0 4px 16px rgba(61, 90, 128, 0.08),
@@ -73,6 +83,7 @@
             border-radius: 8px;
             overflow: hidden;
             border: 3px solid rgba(212, 165, 116, 0.3);
+            position: relative;
         }
 
         /* Cover Page - AI插圖背景 */
@@ -265,6 +276,7 @@
                 0 6px 20px rgba(61, 90, 128, 0.05),
                 inset 0 1px 0 rgba(255, 255, 255, 0.7);
             position: relative;
+            margin-bottom: 1rem;
         }
 
         .day-number-large {
@@ -821,6 +833,7 @@
     </style>
 </head>
 <body>
+    <div class="fixed-background"></div>
     <div class="booklet">
         <!-- Cover Page -->
         <div class="cover">
