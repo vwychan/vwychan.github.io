@@ -219,6 +219,14 @@
             border-bottom: 2px solid var(--accent-gold);
             overflow-x: auto;
             scrollbar-width: thin;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         .nav-tab {
@@ -253,6 +261,7 @@
         .page {
             display: none;
             padding: 2.5rem 2rem;
+            padding-top: calc(70px + 2.5rem);
             min-height: 500px;
             animation: fadeIn 0.5s ease;
         }
@@ -263,9 +272,9 @@
 
         .day-page-header {
             background:
-                radial-gradient(circle at 25% 15%, rgba(139, 195, 139, 0.06) 0%, transparent 50%),
-                radial-gradient(circle at 75% 85%, rgba(212, 165, 116, 0.05) 0%, transparent 50%),
-                linear-gradient(135deg, rgba(250, 248, 243, 0.7) 0%, rgba(255, 255, 255, 0.6) 100%);
+                radial-gradient(circle at 25% 15%, rgba(139, 195, 139, 0.85) 0%, transparent 50%),
+                radial-gradient(circle at 75% 85%, rgba(212, 165, 116, 0.85) 0%, transparent 50%),
+                linear-gradient(135deg, rgba(250, 248, 243, 0.7) 0%, rgba(255, 255, 255, 0.7) 100%);
             border-radius: 12px;
             text-align: center;
             border: 2px solid rgba(212, 165, 116, 0.3);
@@ -623,7 +632,11 @@
         }
 
         .accommodation {
-            background: linear-gradient(135deg, rgba(212, 165, 116, 0.15) 0%, rgba(61, 90, 128, 0.1) 100%);
+            background: 
+                linear-gradient(135deg,
+                    rgba(255, 255, 255, 0.9) 0%,
+                    rgba(250, 248, 243, 0.95) 50%,
+                    rgba(255, 255, 255, 0.9) 100%);
             padding: 1rem;
             border-radius: 8px;
             margin-top: 1rem;
@@ -686,10 +699,8 @@
 
             /* 導航標籤優化 */
             .nav-tabs {
-                position: sticky;
-                top: 0;
-                z-index: 100;
-                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+                max-width: 100%;
+                border-radius: 0;
             }
 
             .nav-tab {
@@ -701,6 +712,7 @@
             /* 頁面內容優化 */
             .page {
                 padding: 1.5rem 1rem;
+                padding-top: calc(70px + 1.5rem);
             }
 
             .day-number-large {
@@ -1959,9 +1971,23 @@
                 pages.forEach(p => p.classList.remove('active'));
 
                 tab.classList.add('active');
-                document.getElementById(targetPage).classList.add('active');
+                const activePage = document.getElementById(targetPage);
+                activePage.classList.add('active');
 
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+                // Scroll to day-page-header within the active page with buffer for nav-tabs
+                setTimeout(() => {
+                    const header = activePage.querySelector('.day-page-header');
+                    if (header) {
+                        const navTabsHeight = document.querySelector('.nav-tabs').offsetHeight;
+                        const headerPosition = header.getBoundingClientRect().top + window.pageYOffset;
+                        const offsetPosition = headerPosition - navTabsHeight - 20; // 20px extra buffer
+                        
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }, 100);
             });
         });
 
