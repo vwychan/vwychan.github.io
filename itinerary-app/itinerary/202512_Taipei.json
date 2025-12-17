@@ -197,6 +197,7 @@
           "description": "在地人推薦夜市！",
           "locationId": "nanjichang_night_market",
           "isHighlight": false,
+          "link": "https://www.youtube.com/watch?v=UgTEgTxox_A",
           "transport": {
             "mode": "taxi",
             "duration": "20 mins"
