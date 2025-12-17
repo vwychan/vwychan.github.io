@@ -1,16 +1,29 @@
-import { DayItinerary, LocationDetails, Accommodation } from '@/types/itinerary';
+import { DayItinerary, LocationDetails, Accommodation, TimelineEvent } from '@/types/itinerary';
 import { TimelineItem } from './TimelineItem';
 import { InfoCard } from './InfoCard';
+import { useState } from 'react';
+import { EventEditor } from './EventEditor';
 
 interface DaySectionProps {
     day: DayItinerary;
     locations: Record<string, LocationDetails>;
     accommodations: Record<string, Accommodation>;
+    tripId: string;
+    onAddEvent: (tripId: string, dayId: string, newEvent: TimelineEvent) => Promise<void>;
+    onUpdateEvent: (tripId: string, dayId: string, updatedEvent: TimelineEvent, originalEventTitle: string) => Promise<void>;
+    onDeleteEvent: (tripId: string, dayId: string, eventTitle: string, eventTime: string) => Promise<void>;
+    isEditable?: boolean;
 }
 
-export function DaySection({ day, locations, accommodations }: DaySectionProps) {
+export function DaySection({ day, locations, accommodations, tripId, onAddEvent, onUpdateEvent, onDeleteEvent, isEditable = false }: DaySectionProps) {
     const accommodation = (day.accommodationId && accommodations) ? accommodations[day.accommodationId] : undefined;
     const accLocation = accommodation ? locations[accommodation.locationId] : undefined;
+    const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+
+    const handleSaveNewEvent = async (event: TimelineEvent) => {
+        await onAddEvent(tripId, day.id, event);
+        setIsAddModalOpen(false);
+    };
 
     return (
         <div className="page active" style={{ display: 'block' }}> {/* Helper style for now */}
@@ -19,6 +32,11 @@ export function DaySection({ day, locations, accommodations }: DaySectionProps) 
                     {day.date}
                 </div>
                 <div className="day-location">{day.location}</div>
+                {isEditable && (
+                    <button onClick={() => setIsAddModalOpen(true)} className="bg-green-500 text-white text-xs px-2 py-1 rounded ml-4 hover:bg-green-600">
+                        + Add Event
+                    </button>
+                )}
             </div>
 
             <div className="info-section">
@@ -48,6 +66,10 @@ export function DaySection({ day, locations, accommodations }: DaySectionProps) 
                         key={idx}
                         event={event}
                         location={event.locationId ? locations[event.locationId] : undefined}
+                        tripId={tripId}
+                        dayId={day.id}
+                        onUpdateEvent={isEditable ? onUpdateEvent : undefined}
+                        onDeleteEvent={isEditable ? onDeleteEvent : undefined}
                     />
                 ))}
             </div>
@@ -64,6 +86,14 @@ export function DaySection({ day, locations, accommodations }: DaySectionProps) 
                     {accommodation.notes && <p>{accommodation.notes}</p>}
                 </div>
             )}
+
+            <EventEditor
+                isOpen={isAddModalOpen}
+                initialEvent={{ time: '09:00' }}
+                onSave={handleSaveNewEvent}
+                onCancel={() => setIsAddModalOpen(false)}
+                title={`Add Event to ${day.date}`}
+            />
         </div>
     );
 }

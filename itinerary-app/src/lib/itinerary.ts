@@ -14,7 +14,22 @@ export function getTripIds(): string[] {
         .map((file) => file.replace('.json', ''));
 }
 
+import { getTripFromFirestore } from './firebase-utils';
+
 export async function getTripData(id: string): Promise<TripBooklet | null> {
+    // 1. Try Firestore first
+    try {
+        const firestoreData = await getTripFromFirestore(id);
+        if (firestoreData) {
+            console.log(`[Data] Fetched ${id} from Firestore`);
+            return firestoreData;
+        }
+    } catch (e) {
+        console.warn(`[Data] Failed to fetch from Firestore for ${id}, falling back to local file.`);
+    }
+
+    // 2. Fallback to Local File
+    console.log(`[Data] Falling back to local file for ${id}`);
     const filePath = path.join(ITINERARY_DIR, `${id}.json`);
 
     if (!fs.existsSync(filePath)) {

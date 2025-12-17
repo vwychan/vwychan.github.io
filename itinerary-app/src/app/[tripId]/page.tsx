@@ -42,5 +42,5 @@ export default async function TripPage({ params }: PageProps) {
         notFound();
     }
 
-    return <TripView data={data} />;
+    return <TripView data={data} tripId={tripId} />;
 }
