@@ -25,6 +25,7 @@ export const metadata: Metadata = {
   description: "All-at-a-glance",
   icons: {
     icon: '/img/Trippie_logo.jpg',
+    apple: '/img/Trippie_logo.jpg',
   },
 };
 

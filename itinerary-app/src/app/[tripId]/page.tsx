@@ -27,7 +27,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return {
         title: data.meta.title,
         description: data.meta.subtitle,
-        icons: { icon: data.theme?.tabIcon || '/img/Trippie_logo.jpg' },
+        icons: {
+            icon: data.theme?.tabIcon || '/img/Trippie_logo.jpg',
+            apple: data.theme?.tabIcon || '/img/Trippie_logo.jpg',
+        },
     };
 }
 
