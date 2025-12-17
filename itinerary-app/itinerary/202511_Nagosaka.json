@@ -1,0 +1,954 @@
+{
+  "meta": {
+    "title": "日本中部之旅",
+    "subtitle": "名古屋・金澤・伊勢・大阪",
+    "dateRange": "2024.11.29 - 12.09",
+    "overviewDescription": "為期10天的日本中部深度之旅"
+  },
+  "theme": {
+    "backgroundImage": "/img/202511_Nagosaka.png",
+    "tabIcon": "/img/202511_Nagosaka_logo.png"
+  },
+  "locations": {
+    "nagoya_marui": {
+      "id": "nagoya_marui",
+      "name": "marui home hibino",
+      "address": "愛知縣名古屋市熱田區比比野町6號，郵編：456-0074",
+      "region": "名古屋",
+      "googleMapLink": "https://maps.app.goo.gl/NhXjP9wB86JKEwgg6"
+    },
+    "kanazawa_nono": {
+      "id": "kanazawa_nono",
+      "name": "天然温泉 加賀の宝泉 御宿 野乃金沢",
+      "address": "石川県金沢市下堤町1-1",
+      "region": "金澤",
+      "phone": "076-267-6488",
+      "googleMapLink": "https://maps.app.goo.gl/Mc7o89vJwf4MKKH97"
+    },
+    "ise_yamakoma": {
+      "id": "ise_yamakoma",
+      "name": "山小舎 (Yamakoma)",
+      "address": "民泊やまこま MINPAKU YAMAKOMA 〒519-2165 三重県多気郡多気町田中94番地",
+      "region": "伊勢",
+      "phone": "0598-39-8836",
+      "googleMapLink": "https://maps.app.goo.gl/qquZATfjZ9jGa4iUA"
+    },
+    "osaka_tengachaya": {
+      "id": "osaka_tengachaya",
+      "name": "太INN-弍*天下茶屋",
+      "address": "2-chōme-11-4 Tengachaya, Osaka, Osaka 557-0014",
+      "region": "大阪",
+      "googleMapLink": "https://maps.app.goo.gl/4Z5L916LrBFomedw6"
+    },
+    "yamachan_kanayama": {
+      "id": "yamachan_kanayama",
+      "name": "世界の山ちゃん 金山総本店",
+      "address": "〒460-0022 愛知県名古屋市中区金山1-15-10",
+      "phone": "052-331-9989",
+      "googleMapLink": "https://maps.app.goo.gl/NhXjP9wB86JKEwgg6"
+    },
+    "airport_ngo": {
+      "id": "airport_ngo",
+      "name": "新特麗亞名古屋中部國際機場",
+      "address": "愛知県常滑市セントレア1丁目1",
+      "googleMapLink": "https://maps.app.goo.gl/..."
+    },
+    "atsuta_houraiken": {
+      "id": "atsuta_houraiken",
+      "name": "あつた蓬莱軒 松坂屋店",
+      "address": "〒460-8430 愛知県名古屋市中区栄3-16-1 松坂屋名古屋店 本館 B2F",
+      "phone": "052-242-1122",
+      "googleMapLink": "https://maps.app.goo.gl/3sCG645X1ds2wtTa9"
+    },
+    "my_only_fragrance": {
+      "id": "my_only_fragrance",
+      "name": "My Only Fragrance NAGOYA",
+      "address": "〒460-0008 愛知県名古屋市中区栄3-31-7 大河内ビル 3F",
+      "phone": "052-684-5318",
+      "googleMapLink": "https://maps.app.goo.gl/FBdEAMnuxB3usJDb7"
+    },
+    "vantelin_dome": {
+      "id": "vantelin_dome",
+      "name": "バンテリンドーム ナゴヤ (VANTELIN DOME NAGOYA)",
+      "address": "〒461-0047 愛知県名古屋市東区大幸南1-1-1",
+      "phone": "052-719-2121",
+      "googleMapLink": "https://maps.app.goo.gl/7NTnaKXwHN3JDzCY7"
+    },
+    "nippon_rentacar_kanayama": {
+      "id": "nippon_rentacar_kanayama",
+      "name": "Nippon Rent-A-Car 名古屋金山站",
+      "address": "〒460-0022 愛知県名古屋市中区金山1-14-18",
+      "phone": "052-339-0919",
+      "googleMapLink": "https://maps.app.goo.gl/i1zJkKrBuboWnLr19"
+    },
+    "na_bakery": {
+      "id": "na_bakery",
+      "name": "na 麵包店",
+      "address": "〒464-0075 愛知県名古屋市千種区内山3-31-27",
+      "phone": "052-688-7448",
+      "googleMapLink": "https://maps.app.goo.gl/UmFVAcpNUau79u3WA"
+    },
+    "shirakawago": {
+      "id": "shirakawago",
+      "name": "白川鄉合掌造聚落",
+      "address": "〒509-1592 岐阜県大野郡白川村荻町",
+      "phone": "05769-6-1013",
+      "googleMapLink": "https://maps.app.goo.gl/p9YiFGoyT1mfeGSQA"
+    },
+    "kuroyuri": {
+      "id": "kuroyuri",
+      "name": "黒百合（くろゆり）",
+      "address": "〒920-0981 石川県金沢市片町2-21-2",
+      "phone": "076-223-6617",
+      "googleMapLink": "https://maps.app.goo.gl/5xUzLY3ayXrdocRNA"
+    },
+    "oomuni_sushi": {
+      "id": "oomuni_sushi",
+      "name": "大國鮨",
+      "address": "〒920-0981 石川県金沢市片町1-10-3",
+      "phone": "076-221-3018",
+      "googleMapLink": "https://maps.app.goo.gl/jgyywVeAo7zdo1JJ6"
+    },
+    "kenrokuen": {
+      "id": "kenrokuen",
+      "name": "兼六園",
+      "address": "〒920-0936 石川県金沢市兼六町1",
+      "phone": "076-234-3800",
+      "googleMapLink": "https://maps.app.goo.gl/croXT3b38go1GdP69"
+    },
+    "kanazawa_21_museum": {
+      "id": "kanazawa_21_museum",
+      "name": "金沢21世紀美術館",
+      "address": "〒920-8509 石川県金沢市広坂1-2-1",
+      "phone": "076-220-2800",
+      "googleMapLink": "https://maps.app.goo.gl/8gbHA8ce86hjvR5e7"
+    },
+    "higashi_chaya": {
+      "id": "higashi_chaya",
+      "name": "ひがし茶屋街",
+      "address": "〒920-0831 石川県金沢市東山",
+      "phone": "076-232-5555",
+      "googleMapLink": "https://maps.app.goo.gl/DSLmyQVpFLJzWTc7A"
+    },
+    "kanazawa_tamura": {
+      "id": "kanazawa_tamura",
+      "name": "金沢 田村",
+      "address": "〒920-0981 石川県金沢市片町2-29-7",
+      "phone": "076-231-2055",
+      "googleMapLink": "https://maps.app.goo.gl/CVr1bKsrSaddAzLp6"
+    },
+    "kikuya_kanazawa": {
+      "id": "kikuya_kanazawa",
+      "name": "喜久や クロスゲート金沢店",
+      "address": "〒920-8201 石川県金沢市鞍月東1-9",
+      "phone": "076-237-3910",
+      "googleMapLink": "https://maps.app.goo.gl/7aQzAEjyrWXf9TLs7"
+    },
+    "korinji": {
+      "id": "korinji",
+      "name": "願掛け寺　香林寺",
+      "address": "〒921-8031 石川県金沢市野町1-3-15",
+      "phone": "076-241-3905",
+      "googleMapLink": "https://maps.app.goo.gl/Fsh7ng8BjNTMFgke8"
+    },
+    "mukai_sake": {
+      "id": "mukai_sake",
+      "name": "向井酒の店",
+      "address": "〒516-0009 三重県伊勢市河崎2-25-32",
+      "phone": "0596-28-0034",
+      "googleMapLink": "https://maps.app.goo.gl/YivBjT4kAZtQjWuL9"
+    },
+    "sugimura_suisan": {
+      "id": "sugimura_suisan",
+      "name": "スギムラ水產",
+      "address": "〒517-0025 三重県鳥羽市浦村町1414-15",
+      "phone": "0599-32-5808",
+      "googleMapLink": "https://maps.app.goo.gl/NyT7X1GW1uohDaTv8"
+    },
+    "toba_aquarium": {
+      "id": "toba_aquarium",
+      "name": "鳥羽水族館",
+      "address": "〒517-8517 三重県鳥羽市鳥羽3-3-6",
+      "phone": "0599-25-2555",
+      "googleMapLink": "https://maps.app.goo.gl/CkKZqQ4Q41cRdvcUA"
+    },
+    "kazuki_ise_ebi": {
+      "id": "kazuki_ise_ebi",
+      "name": "伊勢海老 海鮮蒸し料理 華月",
+      "address": "〒517-0011 三重県鳥羽市鳥羽1-6-21",
+      "phone": "0599-26-2532",
+      "googleMapLink": "https://maps.app.goo.gl/uAiP3xJh7P4rnCaR9"
+    },
+    "okage_yokocho": {
+      "id": "okage_yokocho",
+      "name": "おかげ横丁",
+      "address": "〒516-0025 三重県伊勢市宇治中之切町52",
+      "phone": "0596-23-8838",
+      "googleMapLink": "https://maps.app.goo.gl/gJhqMSL8Zy7bjo3i9"
+    },
+    "ise_jingu_naiku": {
+      "id": "ise_jingu_naiku",
+      "name": "伊勢神宮（内宮）",
+      "address": "〒516-0023 三重県伊勢市宇治館町1",
+      "phone": "0596-24-1111",
+      "googleMapLink": "https://maps.app.goo.gl/Uz5zZ2C5wSbjdDXF9"
+    },
+    "nippon_rentacar_namba": {
+      "id": "nippon_rentacar_namba",
+      "name": "Nippon Rent-A-Car Nankai Namba Station South Exit",
+      "address": "〒542-0076 大阪府大阪市中央区難波5-1-60",
+      "phone": "06-6633-0919",
+      "googleMapLink": "https://maps.app.goo.gl/3czoRV1SySGgEHNb6"
+    },
+    "goichi_doyama": {
+      "id": "goichi_doyama",
+      "name": "吾一 堂山店",
+      "address": "〒530-0027 大阪府大阪市北区堂山町15-3",
+      "phone": "06-6312-8739",
+      "googleMapLink": "https://maps.app.goo.gl/Mq6tED5fjuVDw57U9"
+    },
+    "oden_marukome": {
+      "id": "oden_marukome",
+      "name": "おでん まる米",
+      "address": "〒542-0086 大阪府大阪市中央区西心斎橋2-7-27",
+      "phone": "06-6213-8818",
+      "googleMapLink": "https://maps.app.goo.gl/TBRkNudUyEfY1dgo7"
+    },
+    "percent_arabica_shinsaibashi": {
+      "id": "percent_arabica_shinsaibashi",
+      "name": "% Arabica 心齋橋",
+      "address": "〒542-0086 大阪府大阪市中央区西心斎橋1-6-35",
+      "googleMapLink": "https://maps.app.goo.gl/HMaACt9jmC9Gq9ov8"
+    },
+    "kyocera_dome": {
+      "id": "kyocera_dome",
+      "name": "京セラドーム大阪 (KYOCERA DOME OSAKA)",
+      "address": "〒550-0023 大阪府大阪市西区千代崎3-2-1",
+      "phone": "06-6586-0106",
+      "googleMapLink": "https://maps.app.goo.gl/Xs1ucvd7ZPQSxdrB6"
+    },
+    "gyutan_lemon": {
+      "id": "gyutan_lemon",
+      "name": "牛たんの檸檬 大阪本店",
+      "address": "〒530-0012 大阪府大阪市北区芝田1-1-3 阪急三番街 南館 B2F",
+      "phone": "06-6292-3910",
+      "googleMapLink": "https://maps.app.goo.gl/WGrQEUfWWhuaDMcK8"
+    },
+    "lucua_osaka": {
+      "id": "lucua_osaka",
+      "name": "ルクア大阪店",
+      "address": "〒530-8558 大阪府大阪市北区梅田3-1-3",
+      "phone": "06-6151-1111",
+      "googleMapLink": "https://maps.app.goo.gl/PqBjUrFqA4Yf9TVT8"
+    },
+    "kix_airport": {
+      "id": "kix_airport",
+      "name": "關西國際機場",
+      "address": "〒549-0001 大阪府泉佐野市泉州空港北1",
+      "googleMapLink": "https://maps.app.goo.gl/..."
+    }
+  },
+  "accommodations": {
+    "nagoya_marui": {
+      "id": "nagoya_marui",
+      "locationId": "nagoya_marui",
+      "checkIn": "15:00",
+      "checkOut": "11:00"
+    },
+    "kanazawa_nono": {
+      "id": "kanazawa_nono",
+      "locationId": "kanazawa_nono",
+      "checkIn": "15:00",
+      "checkOut": "11:00"
+    },
+    "ise_yamakoma": {
+      "id": "ise_yamakoma",
+      "locationId": "ise_yamakoma",
+      "checkIn": "14:00",
+      "checkOut": "11:00"
+    },
+    "osaka_tengachaya": {
+      "id": "osaka_tengachaya",
+      "locationId": "osaka_tengachaya",
+      "checkIn": "16:00",
+      "checkOut": "10:00"
+    }
+  },
+  "days": [
+    {
+      "id": "day1",
+      "date": "11/29",
+      "weekday": "（五）",
+      "location": "名古屋",
+      "accommodationId": "nagoya_marui",
+      "weather": {
+        "temperature": "10°C - 16°C（涼爽）",
+        "condition": "晴天或多雲，降雨機率低",
+        "clothing": "長袖上衣 + 薄外套，晚上較涼建議帶圍巾"
+      },
+      "tips": [
+        "抵達後先在機場兌換少量日圓現金（約￥10,000）",
+        "μSKY 特急可在機場購票，約￥1,250/人",
+        "世界の山ちゃん營業到深夜，不用擔心太晚",
+        "記得調整手機時區為日本時間（GMT+9）"
+      ],
+      "events": [
+        {
+          "time": "15:35",
+          "title": "香港國際機場起飛",
+          "description": "準備開始精彩的日本之旅！",
+          "isBooked": true
+        },
+        {
+          "time": "20:05",
+          "title": "抵達名古屋中部國際機場",
+          "description": "新特麗亞名古屋中部國際機場客運大樓 2",
+          "note": "日本時間，記得調整手錶！",
+          "locationId": "airport_ngo",
+          "transport": {
+            "mode": "public_transport",
+            "details": "μSKY特急",
+            "duration": "28 mins",
+            "price": "￥1,250"
+          }
+        },
+        {
+          "time": "20:30",
+          "title": "μSKY特急",
+          "description": "從機場前往名古屋市中心",
+          "note": "車程約28分鐘，直達名古屋站",
+          "transport": {
+            "mode": "public_transport",
+            "details": "直達名古屋站"
+          }
+        },
+        {
+          "time": "21:30",
+          "title": "marui home hibino - Check-in",
+          "description": "放下行李，稍作休息",
+          "locationId": "nagoya_marui",
+          "isBooked": true,
+          "transport": {
+            "mode": "walk",
+            "duration": "10 mins",
+            "details": "前往 世界の山ちゃん"
+          }
+        },
+        {
+          "time": "22:00",
+          "title": "世界の山ちゃん 金山総本店",
+          "description": "名古屋名物手羽先（炸雞翅）專門店！招牌：幻の手羽先、味噌串炸",
+          "locationId": "yamachan_kanayama",
+          "isHighlight": true
+        }
+      ]
+    },
+    {
+      "id": "day2",
+      "date": "11/30",
+      "weekday": "（六）",
+      "location": "名古屋",
+      "accommodationId": "nagoya_marui",
+      "weather": {
+        "temperature": "11°C - 17°C",
+        "condition": "多雲時晴",
+        "clothing": "舒適的長袖+外套，演唱會可能會熱，建議洋蔥式穿搭"
+      },
+      "tips": [
+        "あつた蓬莱軒很熱門，建議11:00前或14:00後前往",
+        "演唱會入場可能需要排隊，建議17:00前抵達",
+        "應援物品記得帶克拉棒！",
+        "演唱會後餐廳可能客滿，可考慮便利商店或24h食堂"
+      ],
+      "events": [
+        {
+          "time": "10:00",
+          "title": "起床",
+          "description": "在Weverse上預購克拉棒（SEVENTEEN應援棒）"
+        },
+        {
+          "time": "11:00",
+          "title": "前往中部國際機場",
+          "description": "於セントラルジャパントラベルセンター領取 HanaCell SIM卡",
+          "note": "記得攜帶護照和預約確認信",
+          "isBooked": true,
+          "transport": {
+            "mode": "public_transport",
+            "details": "名鐵μSKY特急",
+            "duration": "30 mins"
+          }
+        },
+        {
+          "time": "13:00",
+          "title": "あつた蓬莱軒 松坂屋店",
+          "description": "名古屋三大名物之一：鰻魚飯三吃（ひつまぶし）。超人氣店家，可能需要等位",
+          "locationId": "atsuta_houraiken",
+          "isHighlight": true,
+          "transport": {
+            "mode": "public_transport",
+            "details": "從機場回名古屋站，轉地鐵東山線至栄站，步行5分鐘",
+            "duration": "1 hour"
+          }
+        },
+        {
+          "time": "15:00",
+          "title": "栄商圈逛街",
+          "description": "松坂屋百貨、三越百貨\nMy Only Fragrance NAGOYA（客製化香水）",
+          "locationId": "my_only_fragrance",
+          "transport": {
+            "mode": "walk",
+            "duration": "3 mins",
+            "details": "就在松坂屋附近"
+          }
+        },
+        {
+          "time": "17:00",
+          "title": "前往バンテリンドーム ナゴヤ",
+          "description": "建議：提早出發避開入場人潮",
+          "transport": {
+            "mode": "public_transport",
+            "details": "從栄站搭地鐵東山線至名古屋站，轉JR中央線至大曾根站（約20分鐘），步行10分鐘"
+          }
+        },
+        {
+          "time": "18:00",
+          "title": "SEVENTEEN WORLD TOUR [NEW_] IN JAPAN",
+          "description": "バンテリンドーム ナゴヤ (VANTELIN DOME NAGOYA)",
+          "note": "演唱會時間：18:00-21:30",
+          "locationId": "vantelin_dome",
+          "isBooked": true,
+          "isHighlight": true
+        },
+        {
+          "time": "22:00",
+          "title": "晚餐（建議）",
+          "description": "名古屋站周邊：矢場とん（24h營業）、風来坊（炸雞翅）\n榮站周邊：世界の山ちゃん、まるや本店（鰻魚飯）"
+        }
+      ]
+    },
+    {
+      "id": "day3",
+      "date": "12/1",
+      "weekday": "（日）",
+      "location": "名古屋 → 白川鄉 → 金澤",
+      "accommodationId": "kanazawa_nono",
+      "weather": {
+        "temperature": "名古屋 10°C - 15°C / 白川鄉 2°C - 8°C / 金澤 8°C - 12°C",
+        "condition": "多雲 / 可能有雪或雨 / 陰天",
+        "clothing": "保暖外套、圍巾、手套，白川鄉可能需要防水鞋"
+      },
+      "tips": [
+        "12月白川鄉可能開始下雪，路況注意安全",
+        "雪地駕駛：保持車距、慢速行駛、避免急剎車",
+        "白川鄉展望台停車場可能客滿，建議14:00前抵達",
+        "高速公路SA可以休息用餐，推薦ひるがの高原SA"
+      ],
+      "events": [
+        {
+          "time": "10:00",
+          "title": "Nippon Rent-A-Car 名古屋金山站",
+          "description": "取車，開始自駕之旅！記得攜帶國際駕照和護照，確認雪胎配備",
+          "locationId": "nippon_rentacar_kanayama",
+          "isBooked": true,
+          "transport": {
+            "mode": "drive"
+          }
+        },
+        {
+          "time": "10:30",
+          "title": "na 麵包店",
+          "description": "今池的人氣麵包店，早午餐",
+          "locationId": "na_bakery",
+          "transport": {
+            "mode": "drive",
+            "duration": "15 mins"
+          }
+        },
+        {
+          "time": "12:30",
+          "title": "出發前往白川鄉",
+          "description": "途經東海北陸自動車道。建議在ひるがの高原SA休息",
+          "note": "目的地：白川鄉合掌造聚落（停車場：せせらぎ公園駐車場）",
+          "locationId": "shirakawago",
+          "transport": {
+            "mode": "drive",
+            "duration": "2.5-3 hours"
+          }
+        },
+        {
+          "time": "15:00",
+          "title": "白川鄉合掌造聚落",
+          "description": "世界文化遺產，童話般的合掌造建築\n推薦：展望台（絕美雪景）、和田家、明善寺",
+          "note": "12月初可能開始下雪，風景絕美！停車￥500",
+          "locationId": "shirakawago",
+          "isHighlight": true
+        },
+        {
+          "time": "17:00",
+          "title": "前往金澤",
+          "description": "前往天然温泉 加賀の宝泉 御宿 野乃金沢",
+          "locationId": "kanazawa_nono",
+          "transport": {
+            "mode": "drive",
+            "duration": "1.5 hours"
+          }
+        },
+        {
+          "time": "19:00",
+          "title": "黒百合（くろゆり）",
+          "description": "金澤當地人氣居酒屋\n推薦：地酒、刺身、のど黒（喉黑魚）、鄉土料理",
+          "locationId": "kuroyuri",
+          "transport": {
+            "mode": "drive",
+            "duration": "5 mins",
+            "details": "或步行15分鐘"
+          }
+        }
+      ]
+    },
+    {
+      "id": "day4",
+      "date": "12/2",
+      "weekday": "（一）",
+      "location": "金澤",
+      "accommodationId": "kanazawa_nono",
+      "weather": {
+        "temperature": "6°C - 11°C",
+        "condition": "陰天，可能有小雨",
+        "clothing": "防風外套、雨傘、舒適的步行鞋"
+      },
+      "tips": [
+        "兼六園冬季有「雪吊」景觀，絕美！",
+        "21世紀美術館週一休館，今天週一需確認開放時間",
+        "ひがし茶屋街傍晚最美，燈籠亮起時很有氛圍",
+        "金箔冰淇淋是必吃！推薦箔一金箔店"
+      ],
+      "events": [
+        {
+          "time": "11:00",
+          "title": "大國鮨",
+          "description": "金澤頂級壽司店（已預約）",
+          "locationId": "oomuni_sushi",
+          "isBooked": true,
+          "isHighlight": true,
+          "transport": {
+            "mode": "public_transport",
+            "details": "搭巴士約15分鐘，或駕車10分鐘"
+          }
+        },
+        {
+          "time": "13:00",
+          "title": "兼六園",
+          "description": "日本三大名園之一\n必看：徽軫灯籠、霞ヶ池、唐崎松的雪吊",
+          "locationId": "kenrokuen",
+          "isHighlight": true,
+          "transport": {
+            "mode": "drive",
+            "duration": "8 mins",
+            "details": "停車場￥350/小時"
+          }
+        },
+        {
+          "time": "15:00",
+          "title": "金沢21世紀美術館",
+          "description": "當代藝術美術館\n必看：游泳池（Leandro Erlich作品）",
+          "locationId": "kanazawa_21_museum",
+          "isHighlight": true,
+          "transport": {
+            "mode": "walk",
+            "duration": "5 mins"
+          }
+        },
+        {
+          "time": "16:30",
+          "title": "ひがし茶屋街",
+          "description": "保存完好的江戶時代茶屋街\n推薦：箔一金箔店（金箔冰淇淋）、志摩茶屋、懷華樓",
+          "locationId": "higashi_chaya",
+          "transport": {
+            "mode": "public_transport",
+            "details": "搭巴士約15分鐘，或駕車10分鐘"
+          }
+        },
+        {
+          "time": "18:30",
+          "title": "金沢 田村",
+          "description": "螃蟹料理專門店\n12月是加能蟹（ズワイガニ）和香箱蟹的季節！",
+          "locationId": "kanazawa_tamura",
+          "isHighlight": true,
+          "transport": {
+            "mode": "drive",
+            "duration": "10 mins"
+          }
+        }
+      ]
+    },
+    {
+      "id": "day5",
+      "date": "12/3",
+      "weekday": "（二）",
+      "location": "金澤 → 伊勢",
+      "accommodationId": "ise_yamakoma",
+      "weather": {
+        "temperature": "金澤 7°C - 12°C / 伊勢 9°C - 16°C",
+        "condition": "陰天 / 晴天",
+        "clothing": "舒適的駕駛服裝，準備外套應對溫差"
+      },
+      "tips": [
+        "今天車程較長，建議多休息避免疲勞駕駛",
+        "推薦休息站：刈谷PA（美食廣場）、多賀SA",
+        "伊勢比金澤溫暖，抵達後可換輕便衣物",
+        "向井酒の店建議預約，當地人氣店"
+      ],
+      "events": [
+        {
+          "time": "11:00",
+          "title": "喜久や クロスゲート金沢店",
+          "description": "金澤在地美食，早午餐",
+          "locationId": "kikuya_kanazawa",
+          "transport": {
+            "mode": "drive",
+            "duration": "10 mins"
+          }
+        },
+        {
+          "time": "12:30",
+          "title": "願掛け寺　香林寺",
+          "description": "祈願寺廟，以地藏菩薩聞名",
+          "locationId": "korinji",
+          "isHighlight": true,
+          "transport": {
+            "mode": "drive",
+            "duration": "15 mins"
+          }
+        },
+        {
+          "time": "14:00",
+          "title": "出發前往伊勢",
+          "description": "建議在刈谷PA或多賀SA休息",
+          "note": "目的地：山小舎 (Yamakoma)",
+          "locationId": "ise_yamakoma",
+          "transport": {
+            "mode": "drive",
+            "duration": "4.5-5 hours",
+            "price": "￥8,500"
+          }
+        },
+        {
+          "time": "19:00",
+          "title": "抵達伊勢，Check-in",
+          "description": "山小舎 (Yamakoma). 放下行李，準備晚餐",
+          "locationId": "ise_yamakoma"
+        },
+        {
+          "time": "20:00",
+          "title": "向井酒の店（已預約）",
+          "description": "伊勢當地居酒屋",
+          "locationId": "mukai_sake",
+          "isBooked": true,
+          "transport": {
+            "mode": "drive",
+            "duration": "20 mins"
+          }
+        }
+      ]
+    },
+    {
+      "id": "day6",
+      "date": "12/4",
+      "weekday": "（三）",
+      "location": "伊勢・鳥羽",
+      "accommodationId": "ise_yamakoma",
+      "weather": {
+        "temperature": "10°C - 17°C",
+        "condition": "晴天，適合戶外活動",
+        "clothing": "輕便舒適，早上較涼建議薄外套"
+      },
+      "tips": [
+        "生蠔放題建議早點去（9:00開門），避開人潮",
+        "80分鐘吃到飽，記得不要吃太撐影響下午行程",
+        "鳥羽水族館可玩2-3小時，建議購買優惠套票",
+        "12月是伊勢龍蝦最肥美的季節！"
+      ],
+      "events": [
+        {
+          "time": "09:00",
+          "title": "從山小舎出發",
+          "description": "前往スギムラ水產",
+          "locationId": "sugimura_suisan",
+          "transport": {
+            "mode": "drive",
+            "duration": "30-40 mins"
+          }
+        },
+        {
+          "time": "10:00",
+          "title": "スギムラ水產",
+          "description": "焼がき+蒸しがき食べ放題セット（80分）\n生蠔放題！烤生蠔和蒸生蠔吃到飽",
+          "note": "超新鮮的浦村牡蠣，蠔控必去！約￥2,500/人",
+          "locationId": "sugimura_suisan",
+          "isHighlight": true
+        },
+        {
+          "time": "11:30",
+          "title": "前往鳥羽水族館",
+          "description": "目的地：鳥羽水族館",
+          "locationId": "toba_aquarium",
+          "transport": {
+            "mode": "drive",
+            "duration": "15 mins"
+          }
+        },
+        {
+          "time": "12:00",
+          "title": "鳥羽水族館",
+          "description": "日本最大級的水族館之一\n必看：美人魚（儒艮）、企鵝、水獺、海獅表演",
+          "note": "門票：￥2,500，遊覽至17:00",
+          "locationId": "toba_aquarium",
+          "isHighlight": true
+        },
+        {
+          "time": "17:30",
+          "title": "伊勢海老 海鮮蒸し料理 華月",
+          "description": "伊勢龍蝦料理專門店",
+          "locationId": "kazuki_ise_ebi",
+          "isHighlight": true,
+          "transport": {
+            "mode": "drive",
+            "duration": "5 mins"
+          }
+        }
+      ]
+    },
+    {
+      "id": "day7",
+      "date": "12/5",
+      "weekday": "（四）",
+      "location": "伊勢 → 大阪",
+      "accommodationId": "osaka_tengachaya",
+      "weather": {
+        "temperature": "伊勢 11°C - 18°C / 大阪 10°C - 16°C",
+        "condition": "晴天 / 多雲",
+        "clothing": "舒適的步行鞋（伊勢神宮需步行），薄外套"
+      },
+      "tips": [
+        "伊勢神宮參拜順序：外宮→內宮（傳統參拜方式）",
+        "內宮正殿不可拍照，其他區域可以",
+        "おかげ横丁試吃很多，可以當早餐+午餐",
+        "還車前記得加滿油，在附近加油站"
+      ],
+      "events": [
+        {
+          "time": "10:00",
+          "title": "おかげ横丁美食巡禮",
+          "description": "伊勢神宮前的傳統商店街，慢慢逛、慢慢吃",
+          "locationId": "okage_yokocho",
+          "isHighlight": true,
+          "transport": {
+            "mode": "drive",
+            "duration": "25 mins"
+          }
+        },
+        {
+          "time": "12:00",
+          "title": "伊勢神宮（重要景點，充分遊覽）",
+          "description": "日本最神聖的神社，建議預留3.5小時深度體驗\n建議順序：外宮（豐受大神宮）→ 內宮（皇大神宮）",
+          "note": "參拜禮儀：二禮二拍手一禮。內宮的正殿不能拍照",
+          "locationId": "ise_jingu_naiku",
+          "isHighlight": true,
+          "transport": {
+            "mode": "walk",
+            "details": "おかげ横丁就在內宮旁邊"
+          }
+        },
+        {
+          "time": "15:30",
+          "title": "駕車前往大阪",
+          "description": "過路費約¥4,500",
+          "note": "目的地：太INN-弍*天下茶屋",
+          "locationId": "osaka_tengachaya",
+          "transport": {
+            "mode": "drive",
+            "duration": "2.5-3 hours",
+            "price": "￥4,500"
+          }
+        },
+        {
+          "time": "19:00",
+          "title": "大阪住宿 Check-in，放行李",
+          "description": "太INN-弍*天下茶屋",
+          "locationId": "osaka_tengachaya"
+        },
+        {
+          "time": "20:00",
+          "title": "Nippon Rent-A-Car Nankai Namba Station South Exit",
+          "description": "還車（記得加滿油）",
+          "locationId": "nippon_rentacar_namba",
+          "isBooked": true,
+          "transport": {
+            "mode": "drive",
+            "duration": "15 mins"
+          }
+        },
+        {
+          "time": "21:00",
+          "title": "吾一 堂山店（已預約）",
+          "description": "大阪燒鳥（烤雞肉串）名店",
+          "locationId": "goichi_doyama",
+          "isBooked": true,
+          "transport": {
+            "mode": "public_transport",
+            "duration": "20 mins",
+            "details": "從難波站搭地鐵至梅田站，步行約10分鐘"
+          }
+        }
+      ]
+    },
+    {
+      "id": "day8",
+      "date": "12/6",
+      "weekday": "（五）",
+      "location": "大阪",
+      "accommodationId": "osaka_tengachaya",
+      "weather": {
+        "temperature": "9°C - 15°C",
+        "condition": "多雲時晴",
+        "clothing": "洋蔥式穿搭，演唱會場館內會較熱"
+      },
+      "tips": [
+        "京セラドーム建議17:00前抵達避開人潮",
+        "應援物品記得帶好！",
+        "演唱會後難波、梅田都有深夜食堂",
+        "大阪地鐵營運至24:00，規劃好回程路線"
+      ],
+      "events": [
+        {
+          "time": "自由",
+          "title": "上午自由活動",
+          "description": "睡到自然醒，或者可以：逛道頓堀、心齋橋、大阪城公園、黑門市場、阿倍野 Harukas"
+        },
+        {
+          "time": "13:00",
+          "title": "おでん まる米",
+          "description": "大阪關東煮（おでん）專門店",
+          "locationId": "oden_marukome",
+          "isHighlight": true,
+          "transport": {
+            "mode": "public_transport",
+            "duration": "20 mins",
+            "details": "從住宿搭地鐵至心齋橋站，步行約8分鐘"
+          }
+        },
+        {
+          "time": "15:00",
+          "title": "咖啡廳休息",
+          "description": "為晚上的演唱會養精蓄銳",
+          "note": "推薦：阿拉比卡咖啡、% Arabica、藍瓶咖啡",
+          "locationId": "percent_arabica_shinsaibashi",
+          "transport": {
+            "mode": "walk",
+            "duration": "5 mins",
+            "details": "就在おでん まる米附近"
+          }
+        },
+        {
+          "time": "17:00",
+          "title": "前往京セラドーム大阪",
+          "description": "建議：提早出發避開入場人潮",
+          "locationId": "kyocera_dome",
+          "transport": {
+            "mode": "public_transport",
+            "duration": "20 mins",
+            "details": "從心齋橋搭地鐵中央線至九条站，步行8分鐘"
+          }
+        },
+        {
+          "time": "18:00",
+          "title": "SEVENTEEN WORLD TOUR [NEW_] IN JAPAN",
+          "description": "京セラドーム大阪 (KYOCERA DOME OSAKA)",
+          "note": "演唱會時間：18:00-21:30",
+          "locationId": "kyocera_dome",
+          "isBooked": true,
+          "isHighlight": true
+        },
+        {
+          "time": "22:00",
+          "title": "晚餐（推薦）",
+          "description": "難波地區：一蘭拉麵、金龍拉麵、大阪王將、串炸だるま、千房お好み燒\n梅田地區：一風堂拉麵、阪急三番街、大起水產迴轉壽司"
+        }
+      ]
+    },
+    {
+      "id": "day9",
+      "date": "12/7",
+      "weekday": "（六）",
+      "location": "大阪 → 香港",
+      "accommodationId": "osaka_tengachaya",
+      "weather": {
+        "temperature": "10°C - 16°C",
+        "condition": "晴天",
+        "clothing": "舒適輕便，方便逛街和移動"
+      },
+      "tips": [
+        "LUCUA有很多伴手禮店，記得預留時間採購",
+        "City Terminal環亞貴賓室可免費寄放行李（信用卡優惠）",
+        "機場建議提前2.5-3小時抵達（退稅+安檢）",
+        "關西機場免稅店很大，可提早去逛"
+      ],
+      "events": [
+        {
+          "time": "10:00",
+          "title": "起床，整理行李",
+          "description": "Check-out"
+        },
+        {
+          "time": "12:00",
+          "title": "牛たんの檸檬 大阪本店",
+          "description": "仙台牛舌專門店",
+          "locationId": "gyutan_lemon",
+          "isHighlight": true,
+          "transport": {
+            "mode": "public_transport",
+            "duration": "20 mins",
+            "details": "從住宿搭地鐵至梅田站，步行5分鐘"
+          }
+        },
+        {
+          "time": "14:00",
+          "title": "ルクア大阪店 + 行李寄放",
+          "description": "LUCUA 大阪站購物中心. 行李寄放：梅田阪急百貨1樓 City Terminal環亞貴賓室. 推薦店鋪：MUCHA、無印良品、PLAZA、神戶風月堂、りくろーおじさんの店、551蓬萊、LOFT",
+          "locationId": "lucua_osaka",
+          "transport": {
+            "mode": "walk",
+            "details": "就在梅田站旁"
+          }
+        },
+        {
+          "time": "17:30",
+          "title": "前往關西國際機場",
+          "description": "建議搭乘南海電鐵特急 Rapi:t（約45分鐘）",
+          "locationId": "kix_airport",
+          "transport": {
+            "mode": "public_transport",
+            "duration": "45 mins",
+            "price": "￥1,730",
+            "details": "地鐵￥280 + 南海電鐵￥1,450"
+          }
+        },
+        {
+          "time": "19:00",
+          "title": "關西國際機場",
+          "description": "辦理登機、退稅、安檢",
+          "note": "機場免稅店可以逛逛，買最後的伴手禮",
+          "locationId": "kix_airport"
+        },
+        {
+          "time": "21:05",
+          "title": "關西國際機場 → 香港國際機場",
+          "description": "結束美好的日本之旅！",
+          "note": "期待下次再訪 🌸",
+          "isBooked": true
+        }
+      ]
+    }
+  ]
+}

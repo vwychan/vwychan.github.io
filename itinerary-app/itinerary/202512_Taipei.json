@@ -1,0 +1,377 @@
+{
+  "meta": {
+    "title": "台北快閃之旅",
+    "subtitle": "美食與放鬆",
+    "dateRange": "2025.12.18 - 12.20",
+    "overviewDescription": "閃電美食之旅"
+  },
+  "theme": {
+    "backgroundImage": "/img/202512_Taipei.jpeg",
+    "tabIcon": "/img/202512_Taipei_logo.jpg"
+  },
+  "locations": {
+    "airport_hkg": {
+      "id": "airport_hkg",
+      "name": "香港國際機場",
+      "address": "1 Sky Plaza Rd, Chek Lap Kok, Hong Kong",
+      "googleMapLink": "https://www.google.com/maps/search/?api=1&query=Hong+Kong+International+Airport"
+    },
+    "airport_tpe": {
+      "id": "airport_tpe",
+      "name": "台灣桃園國際機場",
+      "address": "No. 9, Hangzhan S. Rd., Dayuan Dist., Taoyuan City 337041",
+      "googleMapLink": "https://www.google.com/maps/search/?api=1&query=Taiwan+Taoyuan+International+Airport"
+    },
+    "amba_taipei_zhongshan": {
+      "id": "amba_taipei_zhongshan",
+      "name": "台北中山意舍酒店",
+      "address": "10412臺北市中山區中山北路二段57-1號",
+      "phone": "+886 2 2565 2828",
+      "googleMapLink": "https://www.google.com/maps/search/?api=1&query=amba+Taipei+Zhongshan"
+    },
+    "dihua_street": {
+      "id": "dihua_street",
+      "name": "迪化街",
+      "address": "103台北市大同區迪化街一段",
+      "googleMapLink": "https://www.google.com/maps/search/?api=1&query=Dihua+Street+Taipei"
+    },
+    "nanjichang_night_market": {
+      "id": "nanjichang_night_market",
+      "name": "南機場夜市",
+      "address": "100台北市中正區中華路二段307巷",
+      "googleMapLink": "https://www.google.com/maps/search/?api=1&query=Nanjichang+Night+Market"
+    },
+    "anan_sesame_oil_chicken": {
+      "id": "anan_sesame_oil_chicken",
+      "name": "阿男麻油雞",
+      "address": "100台北市中正區中華路二段311巷34號 (南機場夜市內)",
+      "googleMapLink": "https://www.google.com/maps/search/?api=1&query=Anan+Sesame+Oil+Chicken"
+    },
+    "xiaodi_rice_cake": {
+      "id": "xiaodi_rice_cake",
+      "name": "曉迪筒仔米糕",
+      "address": "100台北市中正區中華路二段307巷22號 (南機場夜市內)",
+      "googleMapLink": "https://maps.app.goo.gl/8siLgCXimNkHkby2A"
+    },
+    "meilan_juice": {
+      "id": "meilan_juice",
+      "name": "美蘭阿姨新鮮果汁吧",
+      "address": "100台北市中正區中華路二段309巷 (南機場夜市內)",
+      "googleMapLink": "https://maps.app.goo.gl/XzEbZjPFCMrAx46Z7"
+    },
+    "stinky_tofu_boss": {
+      "id": "stinky_tofu_boss",
+      "name": "臭老闆現蒸臭豆腐",
+      "address": "100台北市中正區中華路二段313巷6號 (南機場夜市內)",
+      "googleMapLink": "https://maps.app.goo.gl/hHeoxbUVNp1WB3AQ7"
+    },
+    "doctor_consultation": {
+      "id": "doctor_consultation",
+      "name": "凡登整形外科診所 - 台北店",
+      "address": "3樓, No. 149號, Section 3, Xinyi Road, Da’an District, Taipei City, Taiwan 106",
+      "googleMapLink": "https://maps.app.goo.gl/z6rwcyoLsfuHhoHm8"
+    },
+    "fried_rice_noodles": {
+      "id": "fried_rice_noodles",
+      "name": "朱記花枝羹",
+      "address": "241, Taiwan, New Taipei City, Sanchong District, Zhengyi N Rd, 51號右走廊",
+      "googleMapLink": "https://maps.app.goo.gl/2GNcaVzfMzkko74y5"
+    },
+    "dr_chuang": {
+      "id": "dr_chuang",
+      "name": "美上美皮膚科-莊盈彥醫師",
+      "address": "新北市三重區正義北路104號(美上美皮膚科診所)",
+      "googleMapLink": "https://maps.app.goo.gl/83MDQSddmFhqiScU6"
+    },
+    "wulao_hotpot_zhongshan": {
+      "id": "wulao_hotpot_zhongshan",
+      "name": "無老鍋 台北中山店",
+      "address": "104台北市中山區中山北路二段36-1號",
+      "phone": "+886 2 2581 6238",
+      "googleMapLink": "https://maps.app.goo.gl/fpMSiLkrBvdRv4BKA"
+    },
+    "tianlu": {
+      "id": "tianlu",
+      "name": "老天祿滷味",
+      "address": "台北市武昌街二段55號(西門町徒步區內)",
+      "googleMapLink": "https://maps.app.goo.gl/wrRtmBepeZGCSCTBA"
+    },
+    "chengmi": {
+      "id": "chengmi",
+      "name": "程味珍意麵滷味",
+      "address": "萬華區西寧南路63之2號",
+      "googleMapLink": "https://maps.app.goo.gl/FPGeDD5xbNWKWdnc8"
+    },
+    "bittermelon": {
+      "id": "bittermelon",
+      "name": "檸檬屋正宗苦瓜原汁",
+      "address": "台北市萬華區漢中街21號",
+      "googleMapLink": "https://maps.app.goo.gl/x9SAspAzNnEyrNo96"
+    },
+    "temple": {
+      "id": "temple",
+      "name": "霞海城隍廟",
+      "address": "台北市迪化街一段61號",
+      "googleMapLink": "https://maps.app.goo.gl/JhVdoMGNGcB8GgGP6"
+    }
+  },
+  "accommodations": {
+    "amba_taipei_zhongshan": {
+      "id": "amba_taipei_zhongshan",
+      "locationId": "amba_taipei_zhongshan",
+      "checkIn": "15:00",
+      "checkOut": "11:00"
+    }
+  },
+  "days": [
+    {
+      "id": "day1",
+      "date": "12/18",
+      "weekday": "（四）",
+      "location": "台北",
+      "accommodationId": "amba_taipei_zhongshan",
+      "weather": {
+        "temperature": "18°C - 23°C",
+        "condition": "多雲",
+        "clothing": "薄外套"
+      },
+      "tips": [
+        "抵達後先前往酒店寄存行李",
+        "南機場夜市建議空腹前往",
+        "記得帶現金逛夜市"
+      ],
+      "events": [
+        {
+          "time": "08:05",
+          "title": "香港國際機場起飛",
+          "description": "HB702 HKG -> TPE",
+          "locationId": "airport_hkg",
+          "isBooked": true,
+          "transport": {
+            "mode": "flight",
+            "notes": "HB702",
+            "duration": "1h 50m"
+          }
+        },
+        {
+          "time": "09:55",
+          "title": "抵達台灣桃園國際機場",
+          "description": "入境、領取行李",
+          "locationId": "airport_tpe"
+        },
+        {
+          "time": "11:00",
+          "title": "前往台北中山意舍酒店",
+          "description": "寄存行李 / Check-in",
+          "locationId": "amba_taipei_zhongshan",
+          "transport": {
+            "mode": "train",
+            "notes": "機場捷運 / 的士",
+            "duration": "50 mins"
+          }
+        },
+        {
+          "time": "13:00",
+          "title": "迪化街",
+          "description": "逛老街、文創商店、求姻緣（霞海城隍廟）",
+          "locationId": "dihua_street",
+          "isHighlight": true,
+          "transport": {
+            "mode": "public_transport",
+            "duration": "20 mins"
+          }
+        },
+        {
+          "time": "13:30",
+          "title": "霞海城隍廟",
+          "description": "求姻緣",
+          "locationId": "temple",
+          "isHighlight": true,
+          "transport": {
+            "mode": "walk"
+          }
+        },
+        {
+          "time": "18:00",
+          "title": "南機場夜市",
+          "description": "在地人推薦夜市！",
+          "locationId": "nanjichang_night_market",
+          "isHighlight": false,
+          "transport": {
+            "mode": "taxi",
+            "duration": "20 mins"
+          }
+        },
+        {
+          "time": "18:30",
+          "title": "阿男麻油雞",
+          "description": "南機場夜市必吃美食",
+          "locationId": "anan_sesame_oil_chicken",
+          "isHighlight": false
+        },
+        {
+          "time": "19:00",
+          "title": "曉迪筒仔米糕",
+          "description": "古早味筒仔米糕",
+          "locationId": "xiaodi_rice_cake",
+          "isHighlight": false
+        },
+        {
+          "time": "19:30",
+          "title": "美蘭阿姨新鮮果汁吧",
+          "description": "挑戰苦瓜汁！？",
+          "locationId": "meilan_juice",
+          "isHighlight": false
+        },
+        {
+          "time": "20:00",
+          "title": "臭老闆現蒸臭豆腐",
+          "description": "全素可食，現蒸口感極佳",
+          "locationId": "stinky_tofu_boss",
+          "isHighlight": true
+        },
+        {
+          "time": "21:00",
+          "title": "飲野",
+          "description": "找間酒吧或便利店買酒回酒店放鬆",
+          "notes": "推薦：Bar Mood, Draft Land 或酒店附近居酒屋"
+        }
+      ]
+    },
+    {
+      "id": "day2",
+      "date": "12/19",
+      "weekday": "（五）",
+      "location": "台北",
+      "accommodationId": "amba_taipei_zhongshan",
+      "weather": {
+        "temperature": "17°C - 22°C",
+        "condition": "晴時多雲",
+        "clothing": "舒適休閒"
+      },
+      "tips": [
+        "看醫生行程請準時",
+        "無老鍋建議提前預訂（如未預訂）"
+      ],
+      "events": [
+        {
+          "time": "10:00",
+          "title": "凡登整形外科診所 - 台北店",
+          "description": "凡登整形外科診所 - 台北店",
+          "locationId": "doctor_consultation",
+          "isBooked": true,
+          "transport": {
+            "mode": "taxi",
+            "duration": "20 mins"
+          }
+        },
+        {
+          "time": "12:00",
+          "title": "午餐：炒米粉",
+          "description": "享用道地炒米粉",
+          "locationId": "fried_rice_noodles",
+          "isHighlight": true
+        },
+        {
+          "time": "14:00",
+          "title": "莊醫生",
+          "description": "預約諮詢/治療",
+          "locationId": "dr_chuang",
+          "isBooked": true,
+          "transport": {
+            "mode": "taxi",
+            "duration": "20 mins"
+          }
+        },
+        {
+          "time": "17:00",
+          "title": "自由活動 / 逛街",
+          "description": "中山商圈 / 赤峰街 / 誠品生活"
+        },
+        {
+          "time": "21:00",
+          "title": "無老鍋 台北中山店",
+          "description": "麵包豆腐白湯鍋 & 無老辣香鍋",
+          "locationId": "wulao_hotpot_zhongshan",
+          "isBooked": true,
+          "isHighlight": false,
+          "transport": {
+            "mode": "walk",
+            "duration": "10 mins",
+            "notes": "從酒店步行可達（視距離）或短程的士"
+          }
+        }
+      ]
+    },
+    {
+      "id": "day3",
+      "date": "12/20",
+      "weekday": "（六）",
+      "location": "台北 -> 香港",
+      "weather": {
+        "temperature": "18°C - 24°C",
+        "condition": "晴天",
+        "clothing": "輕便"
+      },
+      "tips": [
+        "預留時間去機場",
+        "最後採購手信"
+      ],
+      "events": [
+        {
+          "time": "10:00",
+          "title": "Check-out",
+          "locationId": "amba_taipei_zhongshan"
+        },
+        {
+          "time": "12:00",
+          "title": "程味珍",
+          "description": "意麵、滷味",
+          "locationId": "chengmi",
+          "isHighlight": true,
+          "transport": {
+            "mode": "public_transport",
+            "duration": "15 mins",
+            "notes": "西門町附近"
+          }
+        },
+        {
+          "time": "14:00",
+          "title": "最後衝刺 / 苦瓜汁",
+          "description": "再來一杯苦瓜汁排毒？",
+          "locationId": "bittermelon",
+          "notes": "如果西門町附近有類似的也可以，或者回南機場夜市"
+        },
+        {
+          "time": "18:30",
+          "title": "前往台灣桃園國際機場",
+          "description": "準備返程",
+          "locationId": "airport_tpe",
+          "transport": {
+            "mode": "train",
+            "notes": "機場捷運",
+            "duration": "50 mins"
+          }
+        },
+        {
+          "time": "21:45",
+          "title": "台北起飛",
+          "description": "HB705 TPE -> HKG",
+          "locationId": "airport_tpe",
+          "isBooked": true,
+          "transport": {
+            "mode": "flight",
+            "notes": "HB705",
+            "duration": "1h 55m"
+          }
+        },
+        {
+          "time": "23:40",
+          "title": "抵達香港",
+          "description": "Home Sweet Home",
+          "locationId": "airport_hkg"
+        }
+      ]
+    }
+  ]
+}
